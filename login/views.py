@@ -1,6 +1,6 @@
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 # Create your views here.
 from django.views import View
 from django.views.generic import CreateView
@@ -23,6 +23,7 @@ class RegisterStudentView(CreateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+
         if form.is_valid():
             nuevo_estudiante = Estudiantes(
                 nombres=form.cleaned_data.get('nombres'),
@@ -34,7 +35,9 @@ class RegisterStudentView(CreateView):
                 telefono_contacto=form.cleaned_data.get('telefono_contacto'),
                 correo=form.cleaned_data.get('correo')
             )
-            nuevo_estudiante.password = make_password('password2')
+
+            password1 = form.cleaned_data.get('password1')
+            nuevo_estudiante.password = make_password(password1)
             nuevo_estudiante.save()
             return redirect('login:login_student')
         else:

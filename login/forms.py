@@ -1,9 +1,19 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
 from student.models import Estudiantes, Grade
 
 
 class FormularioRegistrar(forms.ModelForm):
+    def clean(self):
+        super(FormularioRegistrar, self).clean()
+
+        password = self.cleaned_data.get('password1')
+        re_password = self.cleaned_data.get('password2')
+        print(password)
+        if not password == re_password:
+            raise ValidationError('Por favor, verificar contraseña que sean iguales')
+
     password1 = forms.CharField(widget=forms.PasswordInput(
         attrs={
             'class': 'form-control form-control-lg',
@@ -93,12 +103,3 @@ class FormularioRegistrar(forms.ModelForm):
                 }
             ),
         }
-
-        def clean_password2(self):
-            password1 = self.cleaned_data.get('password1')
-            password2 = self.cleaned_data.get('password2')
-
-            if password1 != password2:
-                raise forms.ValidationError('Por favor, verificar que las contraseñas sean iguales')
-            else:
-                return password2

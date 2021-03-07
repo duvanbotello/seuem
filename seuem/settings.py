@@ -127,9 +127,9 @@ JAZZMIN_SETTINGS = {
     'site_title': 'SEUEM admin',
 
     # Title on the brand, and the login screen (19 chars max)
-    'site_header': 'Software Educativo Unidad De Emprendimiento',
+    'site_header': 'UNIDAD DE EMPRENDIMIENTO',
     "copyright": "SEUEM",
-    "welcome_sign": "Bienvenido a Software Educativo Unidad De Emprendimiento",
+    "welcome_sign": "Bienvenido a SEUEM",
     "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,

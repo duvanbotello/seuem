@@ -36,47 +36,16 @@
 <!-- ============================================================== -->
 <!-- signup form  -->
 <!-- ============================================================== -->
-<form class="splash-container">
+<form class="splash-container" method="POST">
     <div class="card">
         <div class="card-header">
             <h3 class="mb-1">Formulario de registro</h3>
             <p>Ingrese su información de estudiante.</p>
         </div>
         <div class="card-body">
+            {% csrf_token %}
             <div class="form-group">
-                <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Nombres"
-                       autocomplete="off">
-            </div>
-            <div class="form-group">
-                <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Apellidos"
-                       autocomplete="off">
-            </div>
-            <div class="form-group">
-                <input id="inputText4" type="number" class="form-control" placeholder="Codigo de Estudiante">
-            </div>
-            <div class="form-group">
-                <select class="form-control" id="input-select">
-                    <option value="null">Seleccione Grado</option>
-                    {% for grado in grados %}
-                    <option value="{{ grado.id }}">{{ grado.nombre_grado }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="form-group">
-                <input id="inputText5" type="number" class="form-control" placeholder="Ingrese Edad">
-            </div>
-            <div class="form-group">
-                <input class="form-control form-control-lg" type="text" name="nick" required=""
-                       placeholder="Nombre de Acudiente"
-                       autocomplete="off">
-            </div>
-            <div class="form-group">
-                <input class="form-control form-control-lg" type="email" name="email" required=""
-                       placeholder="Correo Electronico" autocomplete="off">
-            </div>
-            <div class="form-group">
-                <input class="form-control form-control-lg" id="pass1" type="password" required=""
-                       placeholder="Contraseña">
+                {{ form.as_p }}
             </div>
             <div class="form-group pt-2">
                 <button class="btn btn-block btn-primary" type="submit">Registrarme</button>

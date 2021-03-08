@@ -1,0 +1,219 @@
+{% extends 'login/base_das.html' %}
+{% load static tag_article %}
+{% block titlepage %}Dashboard - Test Emprendedor{% endblock titlepage %}
+{% block titledas %}Test Soy Emprendedor{% endblock titledas %}
+{% block ubicacion_das %}Test Emprendedor{% endblock ubicacion_das %}
+{% block contentblock %}
+    <div class="row">
+        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <div class="card-header p-4">
+                    <div><h3 class="mb-0">TEST SOY EMPRENDEDOR</h3>
+                        <div>
+                            <br>
+                            El TEST-SOY EMPRENDEDOR, Es un TEST académico que consiste en la aplicación de un
+                            cuestionario a
+                            estudiantes de educación básica primaria, secundaria y educación media.
+                            <br><br>
+                            Este cuestionario se basa en una serie de preguntas enfocadas al pensamiento emprendedor,
+                            con el fin de diagnosticar
+                            y caracterizar al estudiante en cinco componentes que conforman al emprendedor
+                            <br><br>
+                            Estos cinco componentes son:
+                            <br>
+                            <ul>
+                                <li><strong>LIDERAZGO:</strong> Es la capacidad que tiene el estudiante mediante
+                                    habilidades que le
+                                    permiten influenciar en el pensar y actuar de su equipo de trabajo o demás
+                                    compañeros.
+                                </li>
+                                <br>
+                                <li><strong>TRABAJO EN EQUIPO:</strong> Esta capacidad consiste en que el estudiante
+                                    pueda realizar
+                                    trabajos y actividades en grupo de manera organizada, responsable y eficiente en el
+                                    cual se comparten ideas, conocimientos importantes para la asignación de tareas
+                                    según las capacidades de cada compañero, a fin de alcanzar un resultado determinado
+                                    con beneficio grupal.
+                                </li>
+                                <br>
+                                <li><strong>RESILIENCIA:</strong> Ser resiliente, es tener aquella capacidad de afrontar
+                                    la adversidad
+                                    saliendo fortalecido de los obstáculos y problemas, alcanzando un estado de
+                                    excelencia profesional y personal. En el caso de los estudiantes emprendedores es la
+                                    capacidad para afrontar y sobreponerse a las dificultadas y obstáculos que se
+                                    presentan durante el proceso emprendedor ya que ser emprendedor es inherente el
+                                    riesgo al fracaso porque no todas las decisiones que se tomen serán acertadas.
+                                </li>
+                                <br>
+                                <li><strong>INNOVACION:</strong> Hace referencia al acto en el cual el estudiante
+                                    realiza un cambio o una
+                                    modificación que supone la creación o la puesta en marcha de algo novedoso. De esta
+                                    manera, la innovación también aparece vinculada al progreso del proyecto o idea.
+                                </li>
+                                <br>
+                                <li><strong>CREATIVIDAD:</strong> Se define como la capacidad o destreza para crear y a
+                                    la capacidad
+                                    creativa del estudiante. Se dice que existe creatividad cuando el estudiante se
+                                    desarrolla labores de manera distinta a las habituales, con el fin de satisfacer un
+                                    determinado propósito. La creatividad permite cumplir deseos personales o grupales
+                                    de manera más veloz, sencilla, económica o eficiente.
+                                </li>
+                            </ul>
+                            <br>
+                            Con este test se pretende obtener una caracterización al estudiante sobre las capacidades
+                            emprendedoras, con una serie de preguntas, con respuestas de autoconocimiento personal y
+                            pensamiento emprendedor.
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="checkboxradio">
+                            <div class="section-block">
+                                <h3 class="section-title">Cuestionario</h3>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- COMPONENTE DE LIDERAZGO -->
+                            <!-- ============================================================== -->
+                            <div class="card">
+                                <h5 class="card-header">COMPONENTE DE LIDERAZGO </h5>
+                                <div class="card-body">
+                                    <!-- ============================================================== -->
+                                    <!-- inicio p1 -->
+                                    <!-- ============================================================== -->
+                                    <h4>1. ¿Reflejas seguridad y confianza cuando vas a realizar un trabajo o actividad
+                                        con tus compañeros?</h4>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p1"
+                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p1"
+                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p1"
+                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p1"
+                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                    </label>
+                                    <!-- ============================================================== -->
+                                    <!-- final p1 -->
+                                    <!-- ============================================================== -->
+                                    <!-- ============================================================== -->
+                                    <!-- inicio p2 -->
+                                    <!-- ============================================================== -->
+                                    <h4>2. ¿En tu grupo de amigos o compañeros tiendes a ser el de la iniciativa al
+                                        momento de organizar un plan?</h4>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p2"
+                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p2"
+                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p2"
+                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p2"
+                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                    </label>
+                                    <!-- ============================================================== -->
+                                    <!-- final p2 -->
+                                    <!-- ============================================================== -->
+                                    <!-- ============================================================== -->
+                                    <!-- inicio p3 -->
+                                    <!-- ============================================================== -->
+                                    <h4>3. ¿Consideras que tienes la capacidad de expresar y conectar tus ideas de
+                                        manera clara con compañeros?</h4>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p3"
+                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p3"
+                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p3"
+                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p3"
+                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                    </label>
+                                    <!-- ============================================================== -->
+                                    <!-- final p3 -->
+                                    <!-- ============================================================== -->
+                                    <!-- ============================================================== -->
+                                    <!-- inicio p4 -->
+                                    <!-- ============================================================== -->
+                                    <h4>4. ¿Cuándo tienes un plan o trabajo grupal, sueles considerar las ideas de tus
+                                        compañeros y así mismo de aceptar las criticas a tus ideas de manera
+                                        positiva?</h4>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p4"
+                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p4"
+                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p4"
+                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p4"
+                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                    </label>
+                                    <!-- ============================================================== -->
+                                    <!-- final p4 -->
+                                    <!-- ============================================================== -->
+                                    <!-- ============================================================== -->
+                                    <!-- inicio p5 -->
+                                    <!-- ============================================================== -->
+                                    <h4>¿Cuándo en el trabajo o actividad grupal se distribuyen tareas, lo haces de
+                                        acuerdo al potencial o capacidad de cada uno de tus compañeros de grupo con el
+                                        fin de obtener todo su potencial?</h4>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p5"
+                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p5"
+                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p5"
+                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                    </label>
+                                    <label class="custom-control custom-radio">
+                                        <input type="radio" name="p5"
+                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                    </label>
+                                    <!-- ============================================================== -->
+                                    <!-- final p5 -->
+                                    <!-- ============================================================== -->
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- FINAL COMPONENTE DE LIDERAZGO -->
+                            <!-- ============================================================== -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <p class="mb-0">2983 Glenview Drive Corpus Christi, TX 78476</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock contentblock %}

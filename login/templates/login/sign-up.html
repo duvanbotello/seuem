@@ -44,9 +44,7 @@
         </div>
         <div class="card-body">
             {% csrf_token %}
-            <div class="form-group">
-                {{ form.as_p }}
-            </div>
+            {{ form.as_p }}
             <div class="form-group pt-2">
                 <button class="btn btn-block btn-primary" type="submit">Registrarme</button>
             </div>

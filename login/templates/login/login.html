@@ -38,13 +38,21 @@
             SOFTWARE EDUCATIVO UNINAD DE EMPRENDIMIENTO
         </div>
         <div class="card-body">
-            <form>
+            <form method="POST">
+                {% csrf_token %}
+                {% if message %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="username" type="text" placeholder="Ingrese Correo"
+                    <input class="form-control form-control-lg" id="codigo_estudiante" name="codigo_estudiante"
+                           type="number"
+                           placeholder="Ingrese Codigo de Estudiante"
                            autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" id="password" type="password"
+                    <input class="form-control form-control-lg" id="password" name="password" type="password"
                            placeholder="Ingrese Contraseña">
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>

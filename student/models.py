@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -14,9 +15,11 @@ class Grade(models.Model):
 
 
 class Estudiantes(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     nombres = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombres'))
     apellidos = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Apellidos'))
-    codigo_estudiante = models.CharField(max_length=100, unique=True, null=True, blank=False, verbose_name=('Codigo Estudiantil'))
+    codigo_estudiante = models.CharField(max_length=100, unique=True, null=True, blank=False,
+                                         verbose_name=('Codigo Estudiantil'))
     grado = models.ForeignKey(Grade, on_delete=models.CASCADE, null=True, blank=True,
                               verbose_name='Asigne un grado',
                               related_name='Grado', help_text='Seleccione un grado y asignelo')
@@ -24,7 +27,6 @@ class Estudiantes(models.Model):
     nombre_acudiente = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombre del acudiente'))
     telefono_contacto = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Contacto'))
     correo = models.EmailField(verbose_name=('Correo Electronico'))
-    password = models.CharField(max_length=255, null=True, blank=False, verbose_name=('Contraseña'))
 
     def __str__(self):
         return self.nombres + ' ' + self.apellidos

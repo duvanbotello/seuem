@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
-from student.models import Estudiantes, Grade
+from student.models import Estudiantes
 
 
 class FormularioRegistrar(forms.ModelForm):

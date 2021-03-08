@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'student',
+    'article',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +129,7 @@ JAZZMIN_SETTINGS = {
     'site_title': 'SEUEM admin',
 
     # Title on the brand, and the login screen (19 chars max)
-    'site_header': 'UNIDAD DE EMPRENDIMIENTO',
+    'site_header': 'SEUEM admin',
     "copyright": "SEUEM",
     "welcome_sign": "Bienvenido a SEUEM",
     "navbar_small_text": False,
@@ -160,3 +162,8 @@ JAZZMIN_SETTINGS = {
         "success": "btn-outline-success"
     }
 }
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'login.backends.SettingsBackend',
+]

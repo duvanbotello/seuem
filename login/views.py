@@ -25,7 +25,6 @@ class LoginView(View):
     template_name = 'login/login.html'
 
     def get(self, request, *args, **kwargs):
-        print(request.user.is_authenticated)
         if request.user.is_authenticated:
             return redirect(reverse_lazy('login:dashboard'))
         return render(request, self.template_name, {})

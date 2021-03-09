@@ -3,7 +3,11 @@
 {% block titlepage %}Dashboard - Test Emprendedor{% endblock titlepage %}
 {% block titledas %}Test Soy Emprendedor{% endblock titledas %}
 {% block ubicacion_das %}Test Emprendedor{% endblock ubicacion_das %}
+{% block extrajs_custom %}
+    <script src="{% static 'custom/validate_form_test.py.js' %}"></script>
+{% endblock extrajs_custom %}
 {% block contentblock %}
+
     <div class="row">
         <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
@@ -72,144 +76,693 @@
                             <div class="section-block">
                                 <h3 class="section-title">Cuestionario</h3>
                             </div>
-                            <!-- ============================================================== -->
-                            <!-- COMPONENTE DE LIDERAZGO -->
-                            <!-- ============================================================== -->
-                            <div class="card">
-                                <h5 class="card-header">COMPONENTE DE LIDERAZGO </h5>
-                                <div class="card-body">
-                                    <!-- ============================================================== -->
-                                    <!-- inicio p1 -->
-                                    <!-- ============================================================== -->
-                                    <h4>1. ¿Reflejas seguridad y confianza cuando vas a realizar un trabajo o actividad
-                                        con tus compañeros?</h4>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p1"
-                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p1"
-                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p1"
-                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p1"
-                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
-                                    </label>
-                                    <!-- ============================================================== -->
-                                    <!-- final p1 -->
-                                    <!-- ============================================================== -->
-                                    <!-- ============================================================== -->
-                                    <!-- inicio p2 -->
-                                    <!-- ============================================================== -->
-                                    <h4>2. ¿En tu grupo de amigos o compañeros tiendes a ser el de la iniciativa al
-                                        momento de organizar un plan?</h4>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p2"
-                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p2"
-                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p2"
-                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p2"
-                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
-                                    </label>
-                                    <!-- ============================================================== -->
-                                    <!-- final p2 -->
-                                    <!-- ============================================================== -->
-                                    <!-- ============================================================== -->
-                                    <!-- inicio p3 -->
-                                    <!-- ============================================================== -->
-                                    <h4>3. ¿Consideras que tienes la capacidad de expresar y conectar tus ideas de
-                                        manera clara con compañeros?</h4>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p3"
-                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p3"
-                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p3"
-                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p3"
-                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
-                                    </label>
-                                    <!-- ============================================================== -->
-                                    <!-- final p3 -->
-                                    <!-- ============================================================== -->
-                                    <!-- ============================================================== -->
-                                    <!-- inicio p4 -->
-                                    <!-- ============================================================== -->
-                                    <h4>4. ¿Cuándo tienes un plan o trabajo grupal, sueles considerar las ideas de tus
-                                        compañeros y así mismo de aceptar las criticas a tus ideas de manera
-                                        positiva?</h4>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p4"
-                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p4"
-                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p4"
-                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p4"
-                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
-                                    </label>
-                                    <!-- ============================================================== -->
-                                    <!-- final p4 -->
-                                    <!-- ============================================================== -->
-                                    <!-- ============================================================== -->
-                                    <!-- inicio p5 -->
-                                    <!-- ============================================================== -->
-                                    <h4>¿Cuándo en el trabajo o actividad grupal se distribuyen tareas, lo haces de
-                                        acuerdo al potencial o capacidad de cada uno de tus compañeros de grupo con el
-                                        fin de obtener todo su potencial?</h4>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p5"
-                                               class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p5"
-                                               class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p5"
-                                               class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" name="p5"
-                                               class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
-                                    </label>
-                                    <!-- ============================================================== -->
-                                    <!-- final p5 -->
-                                    <!-- ============================================================== -->
+                            <form method="POST" onsubmit="return validar_test()">
+                                {% csrf_token %}
+                                <!-- ============================================================== -->
+                                <!-- COMPONENTE DE LIDERAZGO -->
+                                <!-- ============================================================== -->
+                                <div class="card">
+                                    <h5 class="card-header">COMPONENTE DE LIDERAZGO </h5>
+                                    <div class="card-body">
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p1 -->
+                                        <!-- ============================================================== -->
+                                        <h4>1. ¿Reflejas seguridad y confianza cuando vas a realizar un trabajo o
+                                            actividad
+                                            con tus compañeros?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p1"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p1"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p1"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p1"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p1 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p2 -->
+                                        <!-- ============================================================== -->
+                                        <h4>2. ¿En tu grupo de amigos o compañeros tiendes a ser el de la iniciativa al
+                                            momento de organizar un plan?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p2"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p2"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p2"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p2"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p2 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p3 -->
+                                        <!-- ============================================================== -->
+                                        <h4>3. ¿Consideras que tienes la capacidad de expresar y conectar tus ideas de
+                                            manera clara con compañeros?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p3"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p3"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p3"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p3"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p3 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p4 -->
+                                        <!-- ============================================================== -->
+                                        <h4>4. ¿Cuándo tienes un plan o trabajo grupal, sueles considerar las ideas de
+                                            tus
+                                            compañeros y así mismo de aceptar las criticas a tus ideas de manera
+                                            positiva?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p4"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p4"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p4"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p4"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p4 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p5 -->
+                                        <!-- ============================================================== -->
+                                        <h4>5. ¿Cuándo en el trabajo o actividad grupal se distribuyen tareas, lo haces
+                                            de
+                                            acuerdo al potencial o capacidad de cada uno de tus compañeros de grupo con
+                                            el
+                                            fin de obtener todo su potencial?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p5"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p5"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p5"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p5"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p5 -->
+                                        <!-- ============================================================== -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- FINAL COMPONENTE DE LIDERAZGO -->
-                            <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- FINAL COMPONENTE DE LIDERAZGO -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- COMPONENTE DE CREATIVIDAD -->
+                                <!-- ============================================================== -->
+                                <div class="card">
+                                    <h5 class="card-header">COMPONENTE DE CREATIVIDAD </h5>
+                                    <div class="card-body">
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p6 -->
+                                        <!-- ============================================================== -->
+                                        <h4>6. ¿Te gusta estar en constante aprendizaje e ir descubriendo cosas nuevas
+                                            en el
+                                            día a día? </h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p6"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p6"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p6"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p6"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p6 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p7 -->
+                                        <!-- ============================================================== -->
+                                        <h4>7. ¿Al imaginar o tener una idea en tu mente decides plasmarlo o dibujarlo
+                                            para
+                                            tenerlo presente?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p7"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p7"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p7"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p7"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p7 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p8 -->
+                                        <!-- ============================================================== -->
+                                        <h4>8. ¿Cuándo observas algún objeto o cosa te imaginas como se puede ver o
+                                            hacer de
+                                            otra manera? Por ejemplo, al armar un rompecabezas</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p8"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p8"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p8"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p8"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p8 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p9 -->
+                                        <!-- ============================================================== -->
+                                        <h4>9. ¿Te sueles aburrir o inquietar cuando en tu colegio o día a día haces
+                                            cosas
+                                            de
+                                            forma repetitiva?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p9"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p9"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p9"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p9"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p9 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p10 -->
+                                        <!-- ============================================================== -->
+                                        <h4>10. ¿Cuándo te sientes aburrido o sin tareas por realizar, buscas nuevas
+                                            maneras
+                                            activar tu mente? Por ejemplo, escribir una canción, poesía o haces
+                                            dibujos.</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p10"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p10"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p10"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p10"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p10 -->
+                                        <!-- ============================================================== -->
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- FINAL COMPONENTE DE CREATIVIDAD -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- COMPONENTE DE INNOVACION-->
+                                <!-- ============================================================== -->
+                                <div class="card">
+                                    <h5 class="card-header">COMPONENTE DE INNOVACION</h5>
+                                    <div class="card-body">
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p11 -->
+                                        <!-- ============================================================== -->
+                                        <h4>11. ¿Mides el riesgo que conlleva realizar una actividad o plan nuevo? Por
+                                            ejemplo, realizar una actividad deportiva que no conocías.</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p11"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p11"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p11"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p11"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p11 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p12 -->
+                                        <!-- ============================================================== -->
+                                        <h4>12. ¿Cuándo tienes una presentación o exposición te esmeras realizar
+                                            diferente a
+                                            lo habitual y buscas satisfacer al público?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p12"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p12"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p12"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p12"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p12 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p13 -->
+                                        <!-- ============================================================== -->
+                                        <h4>13 ¿Analizas la forma de aprender técnicas, artes o deportes nuevos?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p13"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p13"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p13"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p13"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p13 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p14 -->
+                                        <!-- ============================================================== -->
+                                        <h4>14 ¿Consideras que aprender una técnica, arte o deporte es importante y
+                                            vital
+                                            para tu vida?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p14"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p14"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p14"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p14"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p14 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p15 -->
+                                        <!-- ============================================================== -->
+                                        <h4>15 ¿Cuándo obtienes algún resultado de un trabajo o actividad, sueles
+                                            conformarte con ello o sigues trabajando para mejorar?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p15"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p15"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p15"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p15"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p15 -->
+                                        <!-- ============================================================== -->
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- FINAL COMPONENTE DE INNOVACION -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- COMPONENTE DE TRABAJO EN EQUIPO-->
+                                <!-- ============================================================== -->
+                                <div class="card">
+                                    <h5 class="card-header">COMPONENTE DE TRABAJO EN EQUIPO</h5>
+                                    <div class="card-body">
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p16 -->
+                                        <!-- ============================================================== -->
+                                        <h4>16. ¿Al realizar un trabajo con tu equipo procuras entregar lo mejor de ti y
+                                            comprometerte a realizarlo de la mejor manera?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p16"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p16"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p16"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p16"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p16 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p17 -->
+                                        <!-- ============================================================== -->
+                                        <h4>17. ¿Cuándo estas en un trabajo en equipo buscas beneficios colectivos? Es
+                                            decir, buscas reconocimiento grupal con tus compañeros mas no
+                                            individual.</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p17"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p17"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p17"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p17"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p17 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p18 -->
+                                        <!-- ============================================================== -->
+                                        <h4>18 ¿Cuándo un compañero de equipo realiza algo mal, le ayudas a mejorar con
+                                            el
+                                            fin de obtener beneficios grupales?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p18"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p18"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p18"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p18"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p18 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p19 -->
+                                        <!-- ============================================================== -->
+                                        <h4>19. ¿Al momento de realizar un plan o trabajo en equipo, tienes la capacidad
+                                            de
+                                            contagiar entusiasmo y motivación a los demás?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p19"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p19"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p19"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p19"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p19 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p20 -->
+                                        <!-- ============================================================== -->
+                                        <h4>20. ¿Aceptas tus errores, y recibes de buena manera las criticas y
+                                            recomendaciones que tus compañeros te sugieren?
+                                        </h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p20"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p20"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p20"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p20"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p20 -->
+                                        <!-- ============================================================== -->
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- FINAL COMPONENTE DE TRABAJO EN EQUIPO -->
+                                <!-- ============================================================== -->
+                                <!-- ============================================================== -->
+                                <!-- COMPONENTE RESILIENCIA -->
+                                <!-- ============================================================== -->
+                                <div class="card">
+                                    <h5 class="card-header">COMPONENTE RESILIENCIA</h5>
+                                    <div class="card-body">
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p16 -->
+                                        <!-- ============================================================== -->
+                                        <h4>21. ¿Si estas estas en una problemática o situación adversa tiendes a buscar
+                                            soluciones constantes?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p21"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p21"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p21"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p21"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p21 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p22 -->
+                                        <!-- ============================================================== -->
+                                        <h4>22. ¿Si tienes una idea o plan, y las personas de tu entorno te dicen cosas
+                                            negativas o realizan actos que tienden a desmotivar, sueles pasarlos por
+                                            alto y
+                                            seguir con la realización del plan?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p22"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p22"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p22"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p22"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p22 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p23 -->
+                                        <!-- ============================================================== -->
+                                        <h4>23. ¿Cuándo te encuentras en una situación adversa, te preguntas primero
+                                            como
+                                            solucionarlo para superarlo y no el por qué ocurrió?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p23"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p23"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p23"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p23"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p23 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p24 -->
+                                        <!-- ============================================================== -->
+                                        <h4>24. ¿Cuándo te equivocas realizando un trabajo o actividad, tomas ese error
+                                            como
+                                            una oportunidad de mejorar?</h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p24"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p24"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p24"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p24"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p24 -->
+                                        <!-- ============================================================== -->
+                                        <!-- ============================================================== -->
+                                        <!-- inicio p25 -->
+                                        <!-- ============================================================== -->
+                                        <h4>25. ¿Si la meta que persigues te obliga a cambiar hábitos y asumir nuevos
+                                            retos,
+                                            sigues con ella hasta conseguirla?
+                                        </h4>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p25"
+                                                   class="custom-control-input"><span class="custom-control-label">Si, de acuerdo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p25"
+                                                   class="custom-control-input"><span class="custom-control-label">Bastante, a menudo.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p25"
+                                                   class="custom-control-input"><span class="custom-control-label">Algo, alguna vez.</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="p25"
+                                                   class="custom-control-input"><span class="custom-control-label">No, en absoluto.</span>
+                                        </label>
+                                        <!-- ============================================================== -->
+                                        <!-- final p25 -->
+                                        <!-- ============================================================== -->
+                                    </div>
+                                </div>
+                                <!-- ============================================================== -->
+                                <!-- FINAL COMPONENTE RESILIENCIA -->
+                                <!-- ============================================================== -->
+                                <div class="card-footer bg-white">
+                                    <button class="btn btn-primary btn-block" type="submit">COMPLETAR TEST</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer bg-white">
-                    <p class="mb-0">2983 Glenview Drive Corpus Christi, TX 78476</p>
                 </div>
             </div>
         </div>

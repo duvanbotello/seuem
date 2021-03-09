@@ -15,7 +15,7 @@ class TestView(LoginRequiredMixin, View):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        request = request.POST
+        request.POST['p1']
         return render(request, self.template_name)
 
 

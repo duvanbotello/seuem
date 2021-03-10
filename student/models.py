@@ -38,7 +38,7 @@ class Estudiantes(models.Model):
 
 class ResultadosModulo1(models.Model):
     estudiante = models.ForeignKey(Estudiantes, on_delete=models.CASCADE)
-    codigo_estudiante = models.CharField(max_length=100, unique=True, null=True, blank=False,
+    codigo_estudiante = models.CharField(max_length=100, null=True, blank=False,
                                          verbose_name=('Codigo Estudiantil'))
     resultado_liderazgo = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Resultado liderazgo'))
     resultado_trabajo_equipo = models.CharField(max_length=10, null=True, blank=False,

@@ -16,7 +16,7 @@
         <hr>
         <label><span
                 class="badge-dot badge-success"></span>Plantilla Idea de negocio:</label>
-        <a href="/static/archivos/plantaforma/PLANTILLA_IDEA_DE_NEGOCIO.docx"
+        <a href="/static/archivos/plantaforma/PLANTILLA IDEA DE NEGOCIO.docx"
            target="_blank">Descargar</a>
         <hr>
         {% if entrega != None %}
@@ -33,7 +33,9 @@
             <br>
             <button class="btn btn-rounded btn-primary" type="submit">Enviar</button>
         </form>
-        <br>
+        {% if tipo_archivo == 0 %}
+            <label class="form-label text-danger"> Solo puedes subir archivo de tipo Word. (docx)</label>
+        {% endif %}
         <hr>
     </div>
 

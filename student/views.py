@@ -74,6 +74,10 @@ class PlantillaM2View(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         archivo = request.FILES['formFile']
+        name_archivo = archivo.name
+        tipo_archivo = name_archivo.split('.')
+        if tipo_archivo[1] != 'docx':
+            return render(request, self.template_name, {'tipo_archivo': 0})
         entrega_estudiante = EntregaArchivos.objects.filter(estudiante=request.user.estudiantes).first()
         if entrega_estudiante:
             archivo_viejo = entrega_estudiante.formato_guia

@@ -15,6 +15,14 @@ def get_entrega(estudiante):
 
 
 @register.simple_tag()
+def get_entrega_all(estudiante):
+    estudiante = EntregaArchivos.objects.filter(estudiante=estudiante).first()
+    if estudiante:
+        return estudiante
+    return None
+
+
+@register.simple_tag()
 def get_post(id_post):
     post = Post.objects.filter(id=id_post).first()
     return post.content

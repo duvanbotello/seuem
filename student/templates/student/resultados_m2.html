@@ -8,56 +8,97 @@
     <!-- content -->
     <!-- ============================================================== -->
     <div class="row">
-        <!-- ============================================================== -->
-        <!-- profile -->
-        <!-- ============================================================== -->
-        <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+        {% if request.user.estudiantes.docente %}
             <!-- ============================================================== -->
-            <!-- card profile -->
+            <!-- profile -->
             <!-- ============================================================== -->
-            <div class="card">
-                <div class="card-body">
-                    <div class="user-avatar text-center d-block">
-                        <img src="assets/images/avatar-1.jpg'" alt="User Avatar"
-                             class="rounded-circle user-avatar-xxl">
+            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+                <!-- ============================================================== -->
+                <!-- card profile -->
+                <!-- ============================================================== -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">Docente Asignado</div>
+                        <br>
+                        <div class="text-center">
+                            <h2 class="font-24 mb-0">{{ request.user.estudiantes.docente.nombres }} {{ request.user.estudiantes.docente.apellidos }}</h2>
+                            <p>{{ request.user.estudiantes.docente.titulo }}</p>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <h2 class="font-24 mb-0">Michael J. Christy</h2>
-                        <p>Project Manager @Influnce</p>
+                    <div class="card-body border-top">
+                        <h3 class="font-16">Informacion de Contacto</h3>
+                        <div class="">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i
+                                        class="fas fa-fw fa-envelope mr-2"></i>{{ request.user.estudiantes.docente.correo }}
+                                </li>
+                                <li class="mb-0"><i
+                                        class="fas fa-fw fa-phone mr-2"></i>{{ request.user.estudiantes.docente.telefono_contacto }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="card-body border-top">
-                    <h3 class="font-16">Informacion de Contacto</h3>
-                    <div class="">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2"><i class="fas fa-fw fa-envelope mr-2"></i>michaelchristy@gmail.com</li>
-                            <li class="mb-0"><i class="fas fa-fw fa-phone mr-2"></i>(900) 123 4567</li>
-                        </ul>
-                    </div>
-                </div>
 
+                </div>
+                <!-- ============================================================== -->
+                <!-- end card profile -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- end card profile -->
+            <!-- end profile -->
             <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- end profile -->
-        <!-- ============================================================== -->
-        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="text-muted">Nota Modulo 2</h5>
-                    <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">$12099</h1>
-                    </div>
-                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                        <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+        {% else %}
+            <!-- ============================================================== -->
+            <!-- profile -->
+            <!-- ============================================================== -->
+            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+                <!-- ============================================================== -->
+                <!-- card profile -->
+                <!-- ============================================================== -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h2 class="font-24 mb-0">Docente no Asignado</h2>
+                        </div>
                     </div>
                 </div>
-                <div id="sparkline-revenue"></div>
+                <!-- ============================================================== -->
+                <!-- end card profile -->
+                <!-- ============================================================== -->
             </div>
-        </div>
+            <!-- ============================================================== -->
+            <!-- end profile -->
+            <!-- ============================================================== -->
+        {% endif %}
+        {% get_entrega_all request.user.estudiantes as estudiante_entrega %}
+        {% if estudiante_entrega.nota %}
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="text-muted">Nota Modulo 2</h5>
+                        <div class="metric-value d-inline-block">
+                            <h1 class="mb-1">{{ estudiante_entrega.nota }}</h1>
+                        </div>
+                        <hr>
+                        <h5 class="text-muted">Observaciones: </h5>
+                        <p>{{ estudiante_entrega.observaciones }}</p>
+                    </div>
+
+                </div>
+            </div>
+        {% else %}
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="text-muted">Nota Modulo 2</h5>
+                        <h1 class="mb-1">Nota sin aginar</h1>
+                    </div>
+
+                </div>
+            </div>
+        {% endif %}
+
+
     </div>
 
     <!-- ============================================================== -->

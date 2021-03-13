@@ -14,6 +14,24 @@ class Grade(models.Model):
         verbose_name_plural = 'Grados'
 
 
+class Docentes(models.Model):
+    nombres = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombres'))
+    apellidos = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Apellidos'))
+    documento = models.CharField(max_length=100, unique=True, null=True, blank=False,
+                                 verbose_name=('Documento identidad'))
+    edad = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Edad'))
+    titulo = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Titulo academico'))
+    telefono_contacto = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Contacto'))
+    correo = models.EmailField(verbose_name=('Correo Electronico'))
+
+    def __str__(self):
+        return self.nombres + ' ' + self.apellidos
+
+    class Meta:
+        verbose_name = 'Docente'
+        verbose_name_plural = 'Docentes'
+
+
 class Estudiantes(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     nombres = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombres'))
@@ -27,6 +45,9 @@ class Estudiantes(models.Model):
     nombre_acudiente = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombre del acudiente'))
     telefono_contacto = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Contacto'))
     correo = models.EmailField(verbose_name=('Correo Electronico'))
+    docente = models.OneToOneField(Docentes, on_delete=models.SET_NULL, null=True, blank=True, default=None,
+                                   verbose_name='Asigne un docente',
+                                   related_name='Docente', help_text='Seleccione un docente y asignelo')
 
     def __str__(self):
         return self.nombres + ' ' + self.apellidos
@@ -59,11 +80,13 @@ class ResultadosModulo1(models.Model):
 
 
 class EntregaArchivos(models.Model):
-    estudiante = models.ForeignKey(Estudiantes, on_delete=models.CASCADE, unique=True)
+    estudiante = models.ForeignKey(Estudiantes, on_delete=models.CASCADE)
     codigo_estudiante = models.CharField(max_length=100, null=True, blank=False,
                                          verbose_name=('Codigo Estudiantil'), unique=True)
     formato_guia = models.FileField(upload_to="static/archivos/", null=True, blank=True,
                                     verbose_name=('Plantilla Guia'))
+    nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
+    observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos

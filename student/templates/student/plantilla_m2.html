@@ -1,8 +1,41 @@
 {% extends 'login/base_das.html' %}
 {% load static tag_article %}
+{% block extrajs_custom %}
+    <script src="{% static 'custom/validate_form_test.py.js' %}"></script>
+{% endblock extrajs_custom %}
 {% block titlepage %}Dashboard - Platilla modulo 2{% endblock titlepage %}
 {% block titledas %}Idea de negocio{% endblock titledas %}
 {% block ubicacion_das %}Plantilla idea de negocio{% endblock ubicacion_das %}
 {% block contentblock %}
-        Plantilla idea de negocio
+    {% get_entrega request.user.estudiantes as entrega %}
+    <div class="card p-4">
+        <label><span
+                class="badge-dot badge-success"></span>Guia Para La Elaboracion De La Plantilla Idea De Negocio:</label>
+        <a href="/static/archivos/plantaforma/GUIA PARA LA ELABORACION DE LA IDEA DE NEGOCIO PARA SOFTWARE.docx"
+           target="_blank">Descargar</a>
+        <hr>
+        <label><span
+                class="badge-dot badge-success"></span>Plantilla Idea de negocio:</label>
+        <a href="/static/archivos/plantaforma/PLANTILLA_IDEA_DE_NEGOCIO.docx"
+           target="_blank">Descargar</a>
+        <hr>
+        {% if entrega != None %}
+            <label class="form-label"><span><i class="text-success font-weight-bold fa fa-fw fa-arrow-up"></i></span>Ya
+                se realizo una entrega anteriormente: </label>
+            <a href="{{ entrega }}" target="_blank">{{ entrega }}</a>
+            <small class="form-label">Si realizas la entrega de nuevo, tu entrega anterior se eliminara </small>
+            <hr>
+        {% endif %}
+        <form method="POST" onsubmit="return validar_archivo()" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="formFile" class="form-label"> Entregar Guia:</label>
+            <input class="form-control" type="file" name="formFile" id="formFile">
+            <br>
+            <button class="btn btn-rounded btn-primary" type="submit">Enviar</button>
+        </form>
+        <br>
+        <hr>
+    </div>
+
+
 {% endblock contentblock %}

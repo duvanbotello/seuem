@@ -4,5 +4,9 @@
 {% block titledas %}Primeros pasos como emprendedor{% endblock titledas %}
 {% block ubicacion_das %}Taller primeros pasos como emprendedor{% endblock ubicacion_das %}
 {% block contentblock %}
-    Taller m2
+
+    <div class="card">
+        {% get_post 2 as post %}
+        {{ post|safe }}
+    </div>
 {% endblock contentblock %}

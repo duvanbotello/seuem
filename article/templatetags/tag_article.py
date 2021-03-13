@@ -1,14 +1,22 @@
 from django import template
 
 from article.models import Post
-from student.models import ResultadosModulo1
+from student.models import ResultadosModulo1, EntregaArchivos
 
 register = template.Library()
 
 
 @register.simple_tag()
-def get_post():
-    post = Post.objects.filter(id=1).first()
+def get_entrega(estudiante):
+    estudiante = EntregaArchivos.objects.filter(estudiante=estudiante).first()
+    if estudiante:
+        return estudiante.formato_guia.name
+    return None
+
+
+@register.simple_tag()
+def get_post(id_post):
+    post = Post.objects.filter(id=id_post).first()
     return post.content
 
 

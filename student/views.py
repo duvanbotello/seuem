@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 
@@ -5,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 
-from student.models import ResultadosModulo1
+from student.models import ResultadosModulo1, EntregaArchivos
 
 
 class TestView(LoginRequiredMixin, View):
@@ -54,7 +56,7 @@ class ResultadosView(LoginRequiredMixin, View):
 
 
 class TallerM2View(LoginRequiredMixin, View):
-    template_name = 'student/taller_m2.html'
+    template_name = 'student/talller_m2.html'
     login_url = reverse_lazy('login:login_student')
     redirect_field_name = None
 
@@ -69,6 +71,27 @@ class PlantillaM2View(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        archivo = request.FILES['formFile']
+        entrega_estudiante = EntregaArchivos.objects.filter(estudiante=request.user.estudiantes).first()
+        if entrega_estudiante:
+            archivo_viejo = entrega_estudiante.formato_guia
+            new_file = archivo
+            if not archivo_viejo == new_file:
+                if os.path.isfile(archivo_viejo.path):
+                    os.remove(archivo_viejo.path)
+            entrega_estudiante.formato_guia = archivo
+            entrega_estudiante.save()
+        else:
+            insert = EntregaArchivos(
+                estudiante=request.user.estudiantes,
+                codigo_estudiante=request.user.estudiantes.codigo_estudiante,
+                formato_guia=archivo
+            )
+            insert.save()
+
+        return redirect(reverse_lazy('student:plantilla_2'))
 
 
 class ResultadosM2View(LoginRequiredMixin, View):

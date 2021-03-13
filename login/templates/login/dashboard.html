@@ -5,7 +5,7 @@
 {% block ubicacion_das %}Modulo de Bienvenidad{% endblock ubicacion_das %}
 {% block contentblock %}
     <div class="card">
-      {% get_post as post%}
+      {% get_post 1 as post%}
       {{ post|safe }}
     </div>
 {% endblock contentblock %}

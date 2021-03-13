@@ -56,3 +56,18 @@ class ResultadosModulo1(models.Model):
     class Meta:
         verbose_name = 'Resultado'
         verbose_name_plural = 'Resultados'
+
+
+class EntregaArchivos(models.Model):
+    estudiante = models.ForeignKey(Estudiantes, on_delete=models.CASCADE, unique=True)
+    codigo_estudiante = models.CharField(max_length=100, null=True, blank=False,
+                                         verbose_name=('Codigo Estudiantil'), unique=True)
+    formato_guia = models.FileField(upload_to="static/archivos/", null=True, blank=True,
+                                    verbose_name=('Plantilla Guia'))
+
+    def __str__(self):
+        return self.estudiante.nombres + ' ' + self.estudiante.apellidos
+
+    class Meta:
+        verbose_name = 'Entrega'
+        verbose_name_plural = 'Entregas'

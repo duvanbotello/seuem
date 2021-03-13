@@ -1,3 +1,12 @@
+function validar_archivo() {
+
+    if (!document.getElementById('formFile').value) {
+        alert('Por favor, Seleccione un archivo');
+        return false;
+    }
+    return true;
+}
+
 function validar_test() {
 
     if (!document.querySelector('input[name="p1"]:checked')) {

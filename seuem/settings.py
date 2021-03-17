@@ -129,13 +129,17 @@ USE_TZ = True
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "./static"),
 # ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+#
+# # Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_ROOT = "/home/thisduvan/seuem/static"
+# or, eg,
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 JAZZMIN_SETTINGS = {
     # title of the window

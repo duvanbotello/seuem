@@ -137,9 +137,8 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-STATIC_ROOT = "/home/thisduvan/seuem/static"
-# or, eg,
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = "/home/seuem/seuem/static"
+STATIC_URL = '/static/'
 
 JAZZMIN_SETTINGS = {
     # title of the window

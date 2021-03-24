@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'seuem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'seuem',
+        'NAME': 'seuem$',
         'USER': 'seuem',
         'PASSWORD': 'D12345678',
         'HOST': 'seuem.mysql.pythonanywhere-services.com',

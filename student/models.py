@@ -83,7 +83,7 @@ class EntregaArchivos(models.Model):
     estudiante = models.ForeignKey(Estudiantes, on_delete=models.CASCADE)
     codigo_estudiante = models.CharField(max_length=100, null=True, blank=False,
                                          verbose_name=('Codigo Estudiantil'), unique=True)
-    formato_guia = models.FileField(upload_to="static/archivos/", null=True, blank=True,
+    formato_guia = models.FileField(upload_to="archivos/", null=True, blank=True,
                                     verbose_name=('Plantilla Guia'))
     nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
     observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))

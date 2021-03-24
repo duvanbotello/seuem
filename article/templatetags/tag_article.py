@@ -10,7 +10,7 @@ register = template.Library()
 def get_entrega(estudiante):
     estudiante = EntregaArchivos.objects.filter(estudiante=estudiante).first()
     if estudiante:
-        return estudiante.formato_guia.name
+        return estudiante.formato_guia.url
     return None
 
 

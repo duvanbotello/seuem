@@ -82,8 +82,15 @@
                         <hr>
                         <h5 class="text-muted">Observaciones: </h5>
                         <p>{{ estudiante_entrega.observaciones }}</p>
+                        <hr>
+                        <h5 class="text-muted">Rubrica: </h5>
+                        {% if estudiante_entrega.rubrica %}
+                            <a href="{{ estudiante_entrega.rubrica.url }}"
+                               target="_blank">Descargar Rubrica</a>
+                        {% else %}
+                            No se ha subido, Rubrica al sistema.
+                        {% endif %}
                     </div>
-
                 </div>
             </div>
         {% else %}

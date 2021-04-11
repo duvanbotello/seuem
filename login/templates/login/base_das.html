@@ -29,6 +29,8 @@
     <!-- ============================================================== -->
     <!-- navbar -->
     <!-- ============================================================== -->
+    {% resultados request.user.estudiantes.codigo_estudiante as resultados_test %}
+    {% get_convocatoria as convocatoria %}
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
             <a class="navbar-brand" href="{% url 'login:dashboard' %}">SEUEM</a>
@@ -77,56 +79,122 @@
                         <li class="nav-divider">
                             Menu
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
-                               data-target="#submenu-1" aria-controls="submenu-1"><i
-                                    class="fa fa-fw fa-user-circle"></i>Modulo 1<span
-                                    class="badge badge-success">6</span></a>
-                            <div id="submenu-1" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'student:capacitacionm1' %}">Capacitacion</a>
+                        {% if convocatoria %}
+                            {% if convocatoria.activar_convocatoria == False %}
+                                {% if resultados_test %}
+                                    <li class="nav-item ">
+                                        <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                                           data-target="#submenu-1" aria-controls="submenu-1"><i
+                                                class="fa fa-fw fa-user-circle"></i>Modulo 1<span
+                                                class="badge badge-success">6</span></a>
+                                        <div id="submenu-1" class="collapse submenu" style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'student:capacitacionm1' %}">Capacitacion</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'student:test_emprendedor' %}">Test
+                                                        Emprendedor</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{% url 'student:resultados' %}">Resultados
+                                                        del
+                                                        Test</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'student:test_emprendedor' %}">Test
-                                            Emprendedor</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{% url 'student:resultados' %}">Resultados del
-                                            Test</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
 
-                        {% resultados request.user.estudiantes.codigo_estudiante as resultados_test %}
-                        {% if resultados_test %}
-                            {% if resultados_test.puntos_totales >= 75 %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                       data-target="#submenu-2" aria-controls="submenu-2"><i
-                                            class="fa fa-fw fa-rocket"></i>Modulo
-                                        2</a>
-                                    <div id="submenu-2" class="collapse submenu" style="">
+                                    {% resultados request.user.estudiantes.codigo_estudiante as resultados_test %}
+                                    {% if resultados_test %}
+                                        {% if resultados_test.puntos_totales >= 75 %}
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#" data-toggle="collapse"
+                                                   aria-expanded="false"
+                                                   data-target="#submenu-2" aria-controls="submenu-2"><i
+                                                        class="fa fa-fw fa-rocket"></i>Modulo
+                                                    2</a>
+                                                <div id="submenu-2" class="collapse submenu" style="">
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="{% url 'student:taller_m2' %}">Taller
+                                                                primeros
+                                                                pasos</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="{% url 'student:plantilla_2' %}">Plantilla
+                                                                idea de
+                                                                negocio</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link"
+                                                               href="{% url 'student:resultadosm2' %}">Seguimiento
+                                                                Modulo 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% else %}
+                                {% endif %}
+                            {% else %}
+                                <li class="nav-item ">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                                       data-target="#submenu-1" aria-controls="submenu-1"><i
+                                            class="fa fa-fw fa-user-circle"></i>Modulo 1<span
+                                            class="badge badge-success">6</span></a>
+                                    <div id="submenu-1" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'student:taller_m2' %}">Taller primeros
-                                                    pasos</a>
+                                                <a class="nav-link" href="{% url 'student:capacitacionm1' %}">Capacitacion</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'student:plantilla_2' %}">Plantilla
-                                                    idea de
-                                                    negocio</a>
+                                                <a class="nav-link" href="{% url 'student:test_emprendedor' %}">Test
+                                                    Emprendedor</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link"
-                                                   href="{% url 'student:resultadosm2' %}">Seguimiento Modulo 2</a>
+                                                <a class="nav-link" href="{% url 'student:resultados' %}">Resultados del
+                                                    Test</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
+
+                                {% resultados request.user.estudiantes.codigo_estudiante as resultados_test %}
+                                {% if resultados_test %}
+                                    {% if resultados_test.puntos_totales >= 75 %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                               data-target="#submenu-2" aria-controls="submenu-2"><i
+                                                    class="fa fa-fw fa-rocket"></i>Modulo
+                                                2</a>
+                                            <div id="submenu-2" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{% url 'student:taller_m2' %}">Taller
+                                                            primeros
+                                                            pasos</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{% url 'student:plantilla_2' %}">Plantilla
+                                                            idea de
+                                                            negocio</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="{% url 'student:resultadosm2' %}">Seguimiento Modulo
+                                                            2</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
                             {% endif %}
                         {% endif %}
+
+
                         <li class="nav-divider">
                             <a class="nav-link" href="{% url 'login:dashboard' %}">Dashboard</a>
                         </li>
@@ -168,6 +236,19 @@
                 <!-- ============================================================== -->
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
+                {% if convocatoria %}
+                    {% if convocatoria.activar_convocatoria == False %}
+                        {% if resultados_test %}
+                        {% else %}
+                            <div class="alert alert-danger" role="alert">
+                                Actualmente la plataforma no esta activa.
+                                <br>
+                                Se activara el {{ convocatoria.proxima_convocatoria }}
+                            </div>
+                        {% endif %}
+
+                    {% endif %}
+                {% endif %}
                 {% block contentblock %}
                 {% endblock contentblock %}
             </div>

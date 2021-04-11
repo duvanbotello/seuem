@@ -52,24 +52,39 @@
                     <div class="col-3"></div>
                     <div class="col-5">
                         <div class="linea-tiempo">
-                            <div class="momento">
-                                <h3>Modulo 1</h3>
-                                <div class="descripcion bg-success">
-                                    <div class="text-white">Aprobado</div>
+                            {% resultados_linea request.user.estudiantes.codigo_estudiante as resultado_linea_v %}
+                            {% entregas_m2_linea request.user.estudiantes.codigo_estudiante as entrega_linea_v %}
+
+                            {% if resultado_linea_v %}
+                                <div class="momento">
+                                    <h3>Modulo 1</h3>
+                                    <div class="descripcion bg-success">
+                                        <div class="text-white">Aprobado</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="momento">
-                                <h3>Modulo 2</h3>
-                                <div class="descripcion bg-danger">
-                                    <div class="text-white">Sin Aprobar</div>
+                            {% else %}
+                                <div class="momento">
+                                    <h3>Modulo 1</h3>
+                                    <div class="descripcion bg-danger">
+                                        <div class="text-white">Sin Aprobar</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="momento">
-                                <h3>Modulo 3</h3>
-                                <div class="descripcion bg-danger">
-                                    <div class="text-white">Sin Aprobar</div>
+                            {% endif %}
+                            {% if entrega_linea_v %}
+                                <div class="momento">
+                                    <h3>Modulo 2</h3>
+                                    <div class="descripcion bg-success">
+                                        <div class="text-white">Aprobado</div>
+                                    </div>
                                 </div>
-                            </div>
+                            {% else %}
+                                <div class="momento">
+                                    <h3>Modulo 2</h3>
+                                    <div class="descripcion bg-danger">
+                                        <div class="text-white">Sin Aprobar</div>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-4"></div>

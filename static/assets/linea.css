@@ -68,7 +68,7 @@
 }
 
 .momento:nth-child(even) .descripcion {
-  background-color: #F33131;
+  background-color: #F0EFEF;
   color: white;
 }
 
@@ -76,6 +76,6 @@
   left: -10px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 12px solid #F33131;
+  border-right: 12px solid #F0EFEF;
   border-left: none;
 }

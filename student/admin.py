@@ -1,10 +1,11 @@
 from django.contrib import admin
 
 # Register your models here.
-from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes
+from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes, Convocatoria
 
 admin.site.register(Grade)
 admin.site.register(Docentes)
+admin.site.register(Convocatoria)
 
 
 @admin.register(EntregaArchivos)

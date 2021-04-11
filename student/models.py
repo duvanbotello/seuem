@@ -88,7 +88,7 @@ class EntregaArchivos(models.Model):
     nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
     observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
     rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
-                                    verbose_name=('Rebrica de calificacion'))
+                               verbose_name=('Rebrica de calificacion'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos
@@ -96,3 +96,15 @@ class EntregaArchivos(models.Model):
     class Meta:
         verbose_name = 'Entrega'
         verbose_name_plural = 'Entregas'
+
+
+class Convocatoria(models.Model):
+    activar_convocatoria = models.BooleanField(default=False, verbose_name="Activar/Desactivar")
+    proxima_convocatoria = models.DateField(null=True, verbose_name="Apertura de plataforma")
+
+    def __str__(self):
+        return str(self.proxima_convocatoria)
+
+    class Meta:
+        verbose_name = 'Convocatoria'
+        verbose_name_plural = 'Convocatorias'

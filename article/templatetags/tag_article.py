@@ -1,9 +1,14 @@
 from django import template
 
 from article.models import Post
-from student.models import ResultadosModulo1, EntregaArchivos
+from student.models import ResultadosModulo1, EntregaArchivos, Convocatoria
 
 register = template.Library()
+
+
+@register.simple_tag()
+def get_convocatoria():
+    return Convocatoria.objects.last()
 
 
 @register.simple_tag()
@@ -26,6 +31,36 @@ def get_entrega_all(estudiante):
 def get_post(id_post):
     post = Post.objects.filter(id=id_post).first()
     return post.content
+
+
+@register.simple_tag()
+def resultados_linea(codigo_estudiante):
+    resultados_Estudiante = ResultadosModulo1.objects.filter(codigo_estudiante=codigo_estudiante).last()
+    if resultados_Estudiante:
+        total = int(resultados_Estudiante.resultado_total)
+        if total >= 75:
+            respuesta = True
+        else:
+            respuesta = False
+    else:
+        respuesta = False
+
+    return respuesta
+
+
+@register.simple_tag()
+def entregas_m2_linea(codigo_estudiante):
+    entregas_m2_linea = EntregaArchivos.objects.filter(codigo_estudiante=codigo_estudiante).last()
+    if entregas_m2_linea:
+        total = float(entregas_m2_linea.nota)
+        if total >= 3:
+            respuesta = True
+        else:
+            respuesta = False
+    else:
+        respuesta = False
+
+    return respuesta
 
 
 @register.simple_tag()

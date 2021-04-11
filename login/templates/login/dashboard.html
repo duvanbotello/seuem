@@ -1,11 +1,81 @@
 {% extends 'login/base_das.html' %}
 {% load static tag_article %}
 {% block titlepage %}Dashboard - Estudiante{% endblock titlepage %}
-{% block titledas %}Bienvenido al Software Educativo Unidad de Empredimiento{% endblock titledas %}
-{% block ubicacion_das %}Modulo de Bienvenida{% endblock ubicacion_das %}
+{% block titledas %}Software Educativo Unidad de Empredimiento{% endblock titledas %}
+{% block ubicacion_das %}Bienvenid@{% endblock ubicacion_das %}
+{% block cssextra %}
+    <link rel="stylesheet" href="{% static 'assets/linea.css' %}">
+{% endblock cssextra %}
 {% block contentblock %}
-    <div class="card">
-      {% get_post 1 as post%}
-      {{ post|safe }}
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card influencer-profile-data">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="text-center">
+                                <img src="{% static 'assets/avatar.png' %}" alt="User Avatar"
+                                     class="rounded-circle user-avatar-xxl">
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-12">
+                            <div class="user-avatar-info">
+                                <div class="m-b-20">
+                                    <div class="user-avatar-name">
+                                        <h2 class="mb-1">{{ request.user.estudiantes.nombres }} {{ request.user.estudiantes.apellidos }}</h2>
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="user-avatar-address">
+                                    <p class="border-bottom pb-3">
+                                        <span class="d-xl-inline-block d-block mb-2"><i
+                                                class="fa fa-universal-access mr-2 text-primary "></i><strong>Grado:</strong> {{ request.user.estudiantes.grado.nombre_grado }}</span>
+
+                                        <br>
+                                        <span class="d-xl-inline-block d-block mb-2"><i
+                                                class="fa fa-phone-volume mr-2 text-primary "></i><strong>Telefono/Celular:</strong> {{ request.user.estudiantes.telefono_contacto }}</span>
+                                        <br>
+                                        <span class="d-xl-inline-block d-block mb-2"><i
+                                                class="fa fa-eraser mr-2 text-primary "></i><strong>Edad:</strong> {{ request.user.estudiantes.edad }}</span>
+                                        <br>
+                                    </p>
+                                    <div class="mt-3">
+                                        <a href="#"
+                                           class="badge badge-light mr-1">{{ request.user.estudiantes.correo }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top row text-center p-3">
+                    <div class="col-3"></div>
+                    <div class="col-5">
+                        <div class="linea-tiempo">
+                            <div class="momento">
+                                <h3>Modulo 1</h3>
+                                <div class="descripcion bg-success">
+                                    <div class="text-white">Aprobado</div>
+                                </div>
+                            </div>
+                            <div class="momento">
+                                <h3>Modulo 2</h3>
+                                <div class="descripcion bg-danger">
+                                    <div class="text-white">Sin Aprobar</div>
+                                </div>
+                            </div>
+                            <div class="momento">
+                                <h3>Modulo 3</h3>
+                                <div class="descripcion bg-danger">
+                                    <div class="text-white">Sin Aprobar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock contentblock %}

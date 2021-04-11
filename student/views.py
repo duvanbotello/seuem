@@ -105,3 +105,12 @@ class ResultadosM2View(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+
+class CapacitacionView(LoginRequiredMixin, View):
+    template_name = 'student/capacitacion_m1.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)

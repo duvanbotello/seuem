@@ -87,6 +87,8 @@ class EntregaArchivos(models.Model):
                                     verbose_name=('Plantilla Guia'))
     nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
     observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
+    rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
+                                    verbose_name=('Rebrica de calificacion'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos

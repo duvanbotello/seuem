@@ -9,7 +9,7 @@ admin.site.register(Docentes)
 
 @admin.register(EntregaArchivos)
 class ArchivosModelAdmin(admin.ModelAdmin):
-    list_display = ('estudiante', 'codigo_estudiante', 'formato_guia', 'nota', 'observaciones',)
+    list_display = ('estudiante', 'codigo_estudiante', 'formato_guia', 'nota', 'observaciones', 'rubrica',)
     search_fields = ('codigo_estudiante',)
     list_filter = ('codigo_estudiante',)
 

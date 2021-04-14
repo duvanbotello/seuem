@@ -58,6 +58,13 @@ class DashboardView(LoginRequiredMixin, View):
         return render(request, self.template_name)
 
 
+class HomeView(View):
+    template_name = 'login/home.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
 class RegisterStudentView(CreateView):
     model = Estudiantes
     form_class = FormularioRegistrar

@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes, Convocatoria
+from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes, Convocatoria, \
+    EntregaArchivosModulo3
 
 admin.site.register(Grade)
 admin.site.register(Docentes)
@@ -10,6 +11,13 @@ admin.site.register(Convocatoria)
 
 @admin.register(EntregaArchivos)
 class ArchivosModelAdmin(admin.ModelAdmin):
+    list_display = ('estudiante', 'codigo_estudiante', 'formato_guia', 'nota', 'observaciones', 'rubrica',)
+    search_fields = ('codigo_estudiante',)
+    list_filter = ('codigo_estudiante',)
+
+
+@admin.register(EntregaArchivosModulo3)
+class EntregaArchivosM3(admin.ModelAdmin):
     list_display = ('estudiante', 'codigo_estudiante', 'formato_guia', 'nota', 'observaciones', 'rubrica',)
     search_fields = ('codigo_estudiante',)
     list_filter = ('codigo_estudiante',)

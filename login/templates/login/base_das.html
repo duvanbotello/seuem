@@ -191,6 +191,30 @@
                                         </li>
                                     {% endif %}
                                 {% endif %}
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                       data-target="#submenu-3" aria-controls="submenu-3"><i
+                                            class="fa fa-bookmark"></i>Modulo 3</a>
+                                    <div id="submenu-3" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% url 'student:guia_modulo_3' %}">Guia plan de negocio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% url 'student:plantilla_3' %}">Plantilla y taller plan de negocio</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link"
+                                                   href="{% url 'student:resultadosm2' %}">Seguimiento Modulo
+                                                    3</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+
                             {% endif %}
                         {% endif %}
 

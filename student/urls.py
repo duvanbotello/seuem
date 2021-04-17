@@ -1,6 +1,7 @@
 from django.urls import path
 
-from student.views import TestView, ResultadosView, TallerM2View, PlantillaM2View, ResultadosM2View, CapacitacionView
+from student.views import TestView, ResultadosView, TallerM2View, PlantillaM2View, ResultadosM2View, CapacitacionView, \
+    PlantillaM3View, GuiaM3View
 
 app_name = 'student'
 urlpatterns = [
@@ -10,4 +11,6 @@ urlpatterns = [
     path('platillam2', PlantillaM2View.as_view(), name='plantilla_2'),
     path('resultadosm2', ResultadosM2View.as_view(), name='resultadosm2'),
     path('capacitacionm1', CapacitacionView.as_view(), name='capacitacionm1'),
+    path('guia-modulo-3', GuiaM3View.as_view(), name='guia_modulo_3'),
+    path('plantilla-modulo-3', PlantillaM3View.as_view(), name='plantilla_3'),
 ]

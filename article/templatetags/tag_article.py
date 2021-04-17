@@ -1,7 +1,7 @@
 from django import template
 
 from article.models import Post
-from student.models import ResultadosModulo1, EntregaArchivos, Convocatoria
+from student.models import ResultadosModulo1, EntregaArchivos, Convocatoria, EntregaArchivosModulo3
 
 register = template.Library()
 
@@ -14,6 +14,14 @@ def get_convocatoria():
 @register.simple_tag()
 def get_entrega(estudiante):
     estudiante = EntregaArchivos.objects.filter(estudiante=estudiante).first()
+    if estudiante:
+        return estudiante.formato_guia.url
+    return None
+
+
+@register.simple_tag()
+def get_entrega_m3(estudiante):
+    estudiante = EntregaArchivosModulo3.objects.filter(codigo_estudiante=estudiante.codigo_estudiante).first()
     if estudiante:
         return estudiante.formato_guia.url
     return None

@@ -98,6 +98,25 @@ class EntregaArchivos(models.Model):
         verbose_name_plural = 'Entregas'
 
 
+class EntregaArchivosModulo3(models.Model):
+    estudiante = models.ForeignKey(Estudiantes, on_delete=models.CASCADE, related_name="EntregaArchivos3")
+    codigo_estudiante = models.CharField(max_length=100, null=True, blank=False,
+                                         verbose_name=('Codigo Estudiantil'), unique=True)
+    formato_guia = models.FileField(upload_to="archivos/", null=True, blank=True,
+                                    verbose_name=('Plantilla Guia'))
+    nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
+    observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
+    rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
+                               verbose_name=('Rebrica de calificacion'))
+
+    def __str__(self):
+        return self.estudiante.nombres + ' ' + self.estudiante.apellidos
+
+    class Meta:
+        verbose_name = 'Entrega Modulo 3'
+        verbose_name_plural = 'Entregas Modulo 3'
+
+
 class Convocatoria(models.Model):
     activar_convocatoria = models.BooleanField(default=False, verbose_name="Activar/Desactivar")
     proxima_convocatoria = models.DateField(null=True, verbose_name="Apertura de plataforma")

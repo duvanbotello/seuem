@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 
-from student.models import ResultadosModulo1, EntregaArchivos
+from student.models import ResultadosModulo1, EntregaArchivos, EntregaArchivosModulo3
 
 
 class TestView(LoginRequiredMixin, View):
@@ -114,3 +114,46 @@ class CapacitacionView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+
+class GuiaM3View(LoginRequiredMixin, View):
+    template_name = 'student/guia_m3.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
+class PlantillaM3View(LoginRequiredMixin, View):
+    template_name = 'student/plantilla_taller_m3.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        archivo = request.FILES['formFile']
+        name_archivo = archivo.name
+        tipo_archivo = name_archivo.split('.')
+        if tipo_archivo[1] != 'docx':
+            return render(request, self.template_name, {'tipo_archivo': 0})
+        entrega_estudiante = EntregaArchivosModulo3.objects.filter(estudiante=request.user.estudiantes).first()
+        if entrega_estudiante:
+            archivo_viejo = entrega_estudiante.formato_guia
+            new_file = archivo
+            if not archivo_viejo == new_file:
+                if os.path.isfile(archivo_viejo.path):
+                    os.remove(archivo_viejo.path)
+            entrega_estudiante.formato_guia = archivo
+            entrega_estudiante.save()
+        else:
+            insert = EntregaArchivosModulo3(
+                estudiante=request.user.estudiantes,
+                codigo_estudiante=request.user.estudiantes.codigo_estudiante,
+                formato_guia=archivo
+            )
+            insert.save()
+
+        return redirect(reverse_lazy('student:plantilla_3'))

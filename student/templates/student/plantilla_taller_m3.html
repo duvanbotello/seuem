@@ -1,0 +1,43 @@
+{% extends 'login/base_das.html' %}
+{% load static tag_article %}
+{% block extrajs_custom %}
+    <script src="{% static 'custom/validate_form_test.py.js' %}"></script>
+{% endblock extrajs_custom %}
+{% block titlepage %}Dashboard - Plantilla y taller modulo 3{% endblock titlepage %}
+{% block titledas %}Plan de negocio{% endblock titledas %}
+{% block ubicacion_das %}Plan de negocio{% endblock ubicacion_das %}
+{% block contentblock %}
+    {% get_entrega_m3 request.user.estudiantes as entrega %}
+    <div class="card p-4">
+        <label><span
+                class="badge-dot badge-success"></span>Guia para la elaboracion del plan de negocio:</label>
+        <a href="/static/archivos/plantaforma/GUIA PARA LA ELABORACION DEL PLAN DE NEGOCIO.docx"
+           target="_blank">Descargar</a>
+        <hr>
+        <label><span
+                class="badge-dot badge-success"></span>Plantilla plan de negocio:</label>
+        <a href="/static/archivos/plantaforma/PLANTILLA PLAN DE NEGOCIO.docx"
+           target="_blank">Descargar</a>
+        <hr>
+        {% if entrega != None %}
+            <label class="form-label"><span><i class="text-success font-weight-bold fa fa-fw fa-arrow-up"></i></span>Ya
+                se realizo una entrega anteriormente: </label>
+            <a href="{{ entrega }}" target="_blank">{{ entrega }}</a>
+            <small class="form-label">Si realizas la entrega de nuevo, tu entrega anterior se eliminara </small>
+            <hr>
+        {% endif %}
+        <form method="POST" onsubmit="return validar_archivo()" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="formFile" class="form-label"> Entregar Guia:</label>
+            <input class="form-control" type="file" name="formFile" id="formFile">
+            <br>
+            <button class="btn btn-rounded btn-primary" type="submit">Enviar</button>
+        </form>
+        {% if tipo_archivo == 0 %}
+            <label class="form-label text-danger"> Solo puedes subir archivo de tipo Word. (docx)</label>
+        {% endif %}
+        <hr>
+    </div>
+
+
+{% endblock contentblock %}

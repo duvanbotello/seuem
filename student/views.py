@@ -125,6 +125,24 @@ class GuiaM3View(LoginRequiredMixin, View):
         return render(request, self.template_name)
 
 
+class ResultadosM3View(LoginRequiredMixin, View):
+    template_name = 'student/resultados_m3.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
+class Modulo4View(LoginRequiredMixin, View):
+    template_name = 'student/modulo4.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
 class PlantillaM3View(LoginRequiredMixin, View):
     template_name = 'student/plantilla_taller_m3.html'
     login_url = reverse_lazy('login:login_student')

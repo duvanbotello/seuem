@@ -1,8 +1,8 @@
 {% extends 'login/base_das.html' %}
 {% load static tag_article %}
-{% block titlepage %}Dashboard - Resultados Modulo 2{% endblock titlepage %}
-{% block titledas %}Inspección de Resultados Modulo 2{% endblock titledas %}
-{% block ubicacion_das %}Resultados Modulo 2{% endblock ubicacion_das %}
+{% block titlepage %}Dashboard - Resultados Modulo 3{% endblock titlepage %}
+{% block titledas %}Inspección de Resultados Modulo 3{% endblock titledas %}
+{% block ubicacion_das %}Resultados Modulo 3{% endblock ubicacion_das %}
 {% block contentblock %}
     <!-- ============================================================== -->
     <!-- content -->
@@ -70,12 +70,12 @@
             <!-- end profile -->
             <!-- ============================================================== -->
         {% endif %}
-        {% get_entrega_all request.user.estudiantes as estudiante_entrega %}
+        {% get_entrega_all_3 request.user.estudiantes as estudiante_entrega %}
         {% if estudiante_entrega.nota %}
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="text-muted">Nota Modulo 2</h5>
+                        <h5 class="text-muted">Nota Modulo 3</h5>
                         <div class="metric-value d-inline-block">
                             <h1 class="mb-1">{{ estudiante_entrega.nota }}</h1>
                         </div>

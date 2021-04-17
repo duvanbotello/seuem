@@ -127,3 +127,21 @@ class Convocatoria(models.Model):
     class Meta:
         verbose_name = 'Convocatoria'
         verbose_name_plural = 'Convocatorias'
+
+
+class EntidadFinanciera(models.Model):
+    nombre_entidad = models.CharField(max_length=100, null=True, blank=False,
+                                      verbose_name=('Ingrese nombre de entidad financiera'))
+    informacion = models.TextField(null=True, blank=False, verbose_name=('Informacion'))
+    url = models.URLField(verbose_name=('URL de entidad'))
+    direccion = models.CharField(max_length=100, null=True, blank=False,
+                                 verbose_name=('Direccion de entidad financiera'))
+    correo_electronico = models.CharField(max_length=100, null=True, blank=False,
+                                          verbose_name=('Correo Electronico'))
+
+    def __str__(self):
+        return self.nombre_entidad
+
+    class Meta:
+        verbose_name = 'Entidades Financieras'
+        verbose_name_plural = 'Entidades Financieras'

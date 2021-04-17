@@ -54,6 +54,7 @@
                         <div class="linea-tiempo">
                             {% resultados_linea request.user.estudiantes.codigo_estudiante as resultado_linea_v %}
                             {% entregas_m2_linea request.user.estudiantes.codigo_estudiante as entrega_linea_v %}
+                            {% entregas_m3_linea request.user.estudiantes.codigo_estudiante as entrega_linea_v3 %}
 
                             {% if resultado_linea_v %}
                                 <div class="momento">
@@ -85,6 +86,27 @@
                                     </div>
                                 </div>
                             {% endif %}
+                            {% if entrega_linea_v3 %}
+                                <div class="momento">
+                                    <h3>Modulo 3</h3>
+                                    <div class="descripcion bg-success">
+                                        <div class="text-white">Aprobado</div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="momento">
+                                    <h3>Modulo 3</h3>
+                                    <div class="descripcion bg-danger">
+                                        <div class="text-white">Sin Aprobar</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="momento">
+                                <h3>Modulo 4</h3>
+                                <div class="descripcion bg-warning">
+                                    <div class="text-black">Informacion de entidades financieras</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-4"></div>

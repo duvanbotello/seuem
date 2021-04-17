@@ -2,11 +2,18 @@ from django.contrib import admin
 
 # Register your models here.
 from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes, Convocatoria, \
-    EntregaArchivosModulo3
+    EntregaArchivosModulo3, EntidadFinanciera
 
 admin.site.register(Grade)
 admin.site.register(Docentes)
 admin.site.register(Convocatoria)
+
+
+@admin.register(EntidadFinanciera)
+class ArchivosModelAdmin(admin.ModelAdmin):
+    list_display = ('nombre_entidad', 'informacion', 'url', 'direccion', 'correo_electronico',)
+    search_fields = ('nombre_entidad',)
+    list_filter = ('nombre_entidad',)
 
 
 @admin.register(EntregaArchivos)

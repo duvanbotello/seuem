@@ -192,28 +192,44 @@
                                     {% endif %}
                                 {% endif %}
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                       data-target="#submenu-3" aria-controls="submenu-3"><i
-                                            class="fa fa-bookmark"></i>Modulo 3</a>
-                                    <div id="submenu-3" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'student:guia_modulo_3' %}">Guia plan de negocio</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'student:plantilla_3' %}">Plantilla y taller plan de negocio</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link"
-                                                   href="{% url 'student:resultadosm2' %}">Seguimiento Modulo
-                                                    3</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                {% entregas_m2_linea request.user.estudiantes.codigo_estudiante as entrega_linea_v %}
+                                {% if resultados_test %}
+                                    {% if resultados_test.puntos_totales >= 75 and entrega_linea_v %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                               data-target="#submenu-3" aria-controls="submenu-3"><i
+                                                    class="fa fa-bookmark"></i>Modulo 3</a>
+                                            <div id="submenu-3" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{% url 'student:guia_modulo_3' %}">Guia
+                                                            plan
+                                                            de negocio</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{% url 'student:plantilla_3' %}">Plantilla
+                                                            y
+                                                            taller plan de negocio</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                           href="{% url 'student:resultados_m3' %}">Seguimiento Modulo
+                                                            3</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
 
-
+                                {% entregas_m3_linea request.user.estudiantes.codigo_estudiante as entrega_linea_v3 %}
+                                {% if resultados_test %}
+                                    {% if resultados_test.puntos_totales >= 75 and entrega_linea_v and entrega_linea_v3 %}
+                                        <li class="nav-divider">
+                                            <a class="nav-link" href="{% url 'student:entidades-financieras' %}">Modulo 4</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
 
                             {% endif %}
                         {% endif %}

@@ -1,7 +1,7 @@
 from django import template
 
 from article.models import Post
-from student.models import ResultadosModulo1, EntregaArchivos, Convocatoria, EntregaArchivosModulo3
+from student.models import ResultadosModulo1, EntregaArchivos, Convocatoria, EntregaArchivosModulo3, EntidadFinanciera
 
 register = template.Library()
 
@@ -20,6 +20,14 @@ def get_entrega(estudiante):
 
 
 @register.simple_tag()
+def get_entidades():
+    estudiante = EntidadFinanciera.objects.all()
+    if estudiante:
+        return estudiante
+    return None
+
+
+@register.simple_tag()
 def get_entrega_m3(estudiante):
     estudiante = EntregaArchivosModulo3.objects.filter(codigo_estudiante=estudiante.codigo_estudiante).first()
     if estudiante:
@@ -30,6 +38,14 @@ def get_entrega_m3(estudiante):
 @register.simple_tag()
 def get_entrega_all(estudiante):
     estudiante = EntregaArchivos.objects.filter(estudiante=estudiante).first()
+    if estudiante:
+        return estudiante
+    return None
+
+
+@register.simple_tag()
+def get_entrega_all_3(estudiante):
+    estudiante = EntregaArchivosModulo3.objects.filter(estudiante=estudiante).first()
     if estudiante:
         return estudiante
     return None
@@ -60,9 +76,30 @@ def resultados_linea(codigo_estudiante):
 def entregas_m2_linea(codigo_estudiante):
     entregas_m2_linea = EntregaArchivos.objects.filter(codigo_estudiante=codigo_estudiante).last()
     if entregas_m2_linea:
-        total = float(entregas_m2_linea.nota)
-        if total >= 3:
-            respuesta = True
+        if entregas_m2_linea.nota:
+            total = float(entregas_m2_linea.nota)
+            if total >= 3:
+                respuesta = True
+            else:
+                respuesta = False
+        else:
+            respuesta = False
+    else:
+        respuesta = False
+
+    return respuesta
+
+
+@register.simple_tag()
+def entregas_m3_linea(codigo_estudiante):
+    entregas_m2_linea = EntregaArchivosModulo3.objects.filter(codigo_estudiante=codigo_estudiante).last()
+    if entregas_m2_linea:
+        if entregas_m2_linea.nota:
+            total = float(entregas_m2_linea.nota)
+            if total >= 3:
+                respuesta = True
+            else:
+                respuesta = False
         else:
             respuesta = False
     else:

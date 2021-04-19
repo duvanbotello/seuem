@@ -33,11 +33,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs',
+    'django_extensions',
     'login',
     'student',
     'article',
     'ckeditor',
 ]
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,12 +150,12 @@ STATICFILES_DIRS = (
 
 JAZZMIN_SETTINGS = {
     # title of the window
-    'site_title': 'SEUEM admin',
+    'site_title': 'SGUEM admin',
 
     # Title on the brand, and the login screen (19 chars max)
-    'site_header': 'SEUEM admin',
-    "copyright": "SEUEM",
-    "welcome_sign": "Bienvenido a SEUEM",
+    'site_header': 'SGUEM admin',
+    "copyright": "SGUEM",
+    "welcome_sign": "Bienvenido a SGUEM",
     "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,

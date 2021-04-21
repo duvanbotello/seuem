@@ -69,7 +69,7 @@ class ResultadosModulo1(models.Model):
     resultado_inovacion = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Resultado inovacion'))
     resultado_creatividad = models.CharField(max_length=10, null=True, blank=False,
                                              verbose_name=('Resultado creatividad'))
-    resultado_total = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Resultado Total'))
+    resultado_total = models.IntegerField(max_length=10, null=True, blank=False, verbose_name=('Resultado Total'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos
@@ -85,7 +85,7 @@ class EntregaArchivos(models.Model):
                                          verbose_name=('Codigo Estudiantil'), unique=True)
     formato_guia = models.FileField(upload_to="archivos/", null=True, blank=True,
                                     verbose_name=('Plantilla Guia'))
-    nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
+    nota = models.IntegerField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
     observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
     rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
                                verbose_name=('Rebrica de calificacion'))
@@ -104,7 +104,7 @@ class EntregaArchivosModulo3(models.Model):
                                          verbose_name=('Codigo Estudiantil'), unique=True)
     formato_guia = models.FileField(upload_to="archivos/", null=True, blank=True,
                                     verbose_name=('Plantilla Guia'))
-    nota = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
+    nota = models.IntegerField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
     observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
     rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
                                verbose_name=('Rebrica de calificacion'))

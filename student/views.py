@@ -64,6 +64,15 @@ class TallerM2View(LoginRequiredMixin, View):
         return render(request, self.template_name)
 
 
+class Indicadores(LoginRequiredMixin, View):
+    template_name = 'student/indicadores.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
 class PlantillaM2View(LoginRequiredMixin, View):
     template_name = 'student/plantilla_m2.html'
     login_url = reverse_lazy('login:login_student')

@@ -12,6 +12,62 @@ def get_convocatoria():
 
 
 @register.simple_tag()
+def get_indicadores_nivel_emprededor():
+    total_presentados = ResultadosModulo1.objects.all().count()
+    total_aprobados = ResultadosModulo1.objects.filter(resultado_total__gte=75).count()
+    nivel_emprendedor = total_aprobados / total_presentados
+    return nivel_emprendedor
+
+
+@register.simple_tag()
+def get_indicadores_ideas_negocio():
+    total_presentados = EntregaArchivos.objects.all().count()
+    total_aprobados = EntregaArchivos.objects.filter(nota__gte=3).count()
+    ideas_negocio = total_presentados / total_aprobados
+
+    return ideas_negocio
+
+
+@register.simple_tag()
+def get_indicadores_plan_negocio():
+    total_presentados = EntregaArchivosModulo3.objects.all().count()
+    total_aprobados = EntregaArchivosModulo3.objects.filter(nota__gte=3).count()
+    viabilidad = total_aprobados / total_presentados
+
+    return viabilidad
+
+
+@register.simple_tag()
+def get_indicadores_m1():
+    total_presentados = ResultadosModulo1.objects.all().count()
+    total_aprobados = ResultadosModulo1.objects.filter(resultado_total__gte=75).count()
+    total_reprobados = ResultadosModulo1.objects.filter(resultado_total__lte=74.99).count()
+
+    return {'total_presentados': total_presentados, 'total_aprobados': total_aprobados,
+            'total_reprobados': total_reprobados}
+
+
+@register.simple_tag()
+def get_indicadores_m2():
+    total_presentados = EntregaArchivos.objects.all().count()
+    total_aprobados = EntregaArchivos.objects.filter(nota__gte=3).count()
+    total_reprobados = EntregaArchivos.objects.filter(nota__lte=2.99).count()
+
+    return {'total_presentados': total_presentados, 'total_aprobados': total_aprobados,
+            'total_reprobados': total_reprobados}
+
+
+@register.simple_tag()
+def get_indicadores_m3():
+    total_presentados = EntregaArchivosModulo3.objects.all().count()
+    total_aprobados = EntregaArchivosModulo3.objects.filter(nota__gte=3).count()
+    total_reprobados = EntregaArchivosModulo3.objects.filter(nota__lte=2.99).count()
+
+    return {'total_presentados': total_presentados, 'total_aprobados': total_aprobados,
+            'total_reprobados': total_reprobados}
+
+
+@register.simple_tag()
 def get_entrega(estudiante):
     estudiante = EntregaArchivos.objects.filter(estudiante=estudiante).first()
     if estudiante:

@@ -1,0 +1,202 @@
+{% extends "admin/base_site.html" %}
+{% load static tag_article %}
+{% block extrastyle %}
+{% endblock %}
+{% block page_content %}
+    {% get_indicadores_m1 as indicadores_m1 %}
+    {% get_indicadores_m2 as indicadores_m2 %}
+    {% get_indicadores_m3 as indicadores_m3 %}
+    {% get_indicadores_nivel_emprededor as nivel_emprendedor %}
+    {% get_indicadores_ideas_negocio as nivel_ideas %}
+    {% get_indicadores_plan_negocio as nivel_plan %}
+
+    <div class="row p-5">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h5 class="card-header">INDICADORES DE GESTION: </h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Inidicador</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Ecuacion</th>
+                            <th scope="col">Resultados</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+
+                            <th scope="row">Nivel emprendedor</th>
+
+                            <td>Este indicador, se fundamenta en la realización del primer TEST aplicado, el cual, se
+                                tomarán la totalidad de estudiantes que presentaron el test, se consolidan los
+                                resultados según la caracterización y en base a ello, se tomaran la cantidad de test
+                                aprobados sobre los aplicados, para determinar la nivelación y conocimiento de los
+                                estudiantes en cuanto al emprendimiento.
+                            </td>
+
+                            <td>nivel y aptitud emprendedora</td>
+
+                            <td>{{ nivel_emprendedor }}%</td>
+                        </tr>
+
+                        <tr>
+
+                            <th scope="row">Ideas de negocio</th>
+
+                            <td>Este indicador, se fundamenta en la información suministrada por el estudiante y tutor
+                                en cuanto a la idea de negocio evaluada por el comité, el cual se tomará la información
+                                de las validaciones o calificaciones de cada una de las ideas de negocios en base a las
+                                rubricas, para determinar la correcta aplicación de las ideas de negocio por lo
+                                emprendedores
+                            </td>
+
+                            <td>Viablidad de ideas
+                                emprendedoras
+                            </td>
+
+                            <td>{{ nivel_ideas }}%</td>
+                        </tr>
+
+                        <tr>
+
+                            <th scope="row">Validación de plan de negocios</th>
+
+                            <td>Este indicador, está fundamentado en la elaboración del plan final de negocios llevado a
+                                cabo en el proceso emprendedor, por ende, es de vital importancia conocer los resultados
+                                de validación del comité evaluativo para así determinar el cumplimiento de los fines de
+                                la unidad de emprendimiento, la siguiente ecuación permitirá conocer si los procesos de
+                                apoyo planteados por la unidad de emprendimiento están siendo factibles para los
+                                estudiantes emprendedores y su proceso.
+                            </td>
+
+                            <td>Planes de negocios
+                                viables
+                            </td>
+
+                            <td>{{ nivel_plan }}%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <hr>
+                    <br>
+                    <h5 class="card-header">Indicadores Modulo 1: </h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Inidicador</th>
+                            <th scope="col">Resultados</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+
+                            <th scope="row">Total de test presentados:</th>
+
+                            <td>{{ indicadores_m1.total_presentados }}
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th scope="row">Total de test aprobados:</th>
+
+                            <td>{{ indicadores_m1.total_aprobados }}
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th scope="row">Total de test reprobados:</th>
+
+                            <td>{{ indicadores_m1.total_reprobados }}
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <hr>
+                    <br>
+                    <h5 class="card-header">Indicadores Modulo 2: </h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Inidicador</th>
+                            <th scope="col">Resultados</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Total de ideas de negocio presentadas:</th>
+                            <td>{{ indicadores_m2.total_presentados }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total de ideas de negocio aprobadas:</th>
+                            <td>{{ indicadores_m2.total_aprobados }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total de ideas de negocio reprobados:</th>
+
+                            <td>{{ indicadores_m2.total_reprobados }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <br>
+                    <h5 class="card-header">Indicadores Modulo 3: </h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Inidicador</th>
+                            <th scope="col">Resultados</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+
+                            <th scope="row">Total de plan de negocio presentados:</th>
+
+                            <td>{{ indicadores_m3.total_presentados }}
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <th scope="row">Total de plan de negocio aprobadas:</th>
+
+                            <td>{{ indicadores_m3.total_aprobados }}
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <th scope="row">Total de plan de negocio reprobados:</th>
+
+                            <td>{{ indicadores_m3.total_reprobados }}
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock page_content %}
+{% block extrajs %}
+{% endblock extrajs %}

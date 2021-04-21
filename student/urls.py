@@ -1,7 +1,7 @@
 from django.urls import path
 
 from student.views import TestView, ResultadosView, TallerM2View, PlantillaM2View, ResultadosM2View, CapacitacionView, \
-    PlantillaM3View, GuiaM3View, ResultadosM3View, Modulo4View
+    PlantillaM3View, GuiaM3View, ResultadosM3View, Modulo4View, Indicadores
 
 app_name = 'student'
 urlpatterns = [
@@ -15,4 +15,5 @@ urlpatterns = [
     path('plantilla-modulo-3', PlantillaM3View.as_view(), name='plantilla_3'),
     path('resultados-modulo-3', ResultadosM3View.as_view(), name='resultados_m3'),
     path('entidades-financieras', Modulo4View.as_view(), name='entidades-financieras'),
+    path('indicadores', Indicadores.as_view(), name='indicadores'),
 ]

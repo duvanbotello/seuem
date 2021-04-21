@@ -15,7 +15,7 @@ def get_convocatoria():
 def get_indicadores_nivel_emprededor():
     total_presentados = ResultadosModulo1.objects.all().count()
     total_aprobados = ResultadosModulo1.objects.filter(resultado_total__gte=75).count()
-    nivel_emprendedor = total_aprobados / total_presentados
+    nivel_emprendedor = (total_aprobados / total_presentados) * 100
     return nivel_emprendedor
 
 
@@ -23,7 +23,7 @@ def get_indicadores_nivel_emprededor():
 def get_indicadores_ideas_negocio():
     total_presentados = EntregaArchivos.objects.all().count()
     total_aprobados = EntregaArchivos.objects.filter(nota__gte=3).count()
-    ideas_negocio = total_presentados / total_aprobados
+    ideas_negocio = (total_presentados / total_aprobados) * 100
 
     return ideas_negocio
 
@@ -32,7 +32,7 @@ def get_indicadores_ideas_negocio():
 def get_indicadores_plan_negocio():
     total_presentados = EntregaArchivosModulo3.objects.all().count()
     total_aprobados = EntregaArchivosModulo3.objects.filter(nota__gte=3).count()
-    viabilidad = total_aprobados / total_presentados
+    viabilidad = (total_aprobados / total_presentados) * 100
 
     return viabilidad
 

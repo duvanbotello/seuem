@@ -153,7 +153,7 @@ JAZZMIN_SETTINGS = {
 
     # Title on the brand, and the login screen (19 chars max)
     'site_header': 'SGUEM admin',
-    "copyright": "SGUEM",
+    "copyright": "SGUEM GIDIS & CINERA-GICC de la UFPS",
     "welcome_sign": "Bienvenido a SGUEM",
     "navbar_small_text": False,
     "footer_small_text": False,

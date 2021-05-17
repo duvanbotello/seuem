@@ -134,7 +134,7 @@ def entregas_m2_linea(codigo_estudiante):
     if entregas_m2_linea:
         if entregas_m2_linea.nota:
             total = float(entregas_m2_linea.nota)
-            if total >= 3:
+            if total >= 4:
                 respuesta = True
             else:
                 respuesta = False
@@ -152,7 +152,7 @@ def entregas_m3_linea(codigo_estudiante):
     if entregas_m2_linea:
         if entregas_m2_linea.nota:
             total = float(entregas_m2_linea.nota)
-            if total >= 3:
+            if total >= 4:
                 respuesta = True
             else:
                 respuesta = False

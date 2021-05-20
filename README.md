@@ -4,7 +4,7 @@ Bienvenido a SGUEM
 Bienvenido a SGUEM
 
 ## Software Usado
- * Python (Django Rest Framework)
+ * Python (Django)
  * Git
  * GitHub
  * PostgreSQL

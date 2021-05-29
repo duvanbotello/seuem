@@ -47,7 +47,7 @@ class Estudiantes(models.Model):
     nombre_acudiente = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombre del acudiente'))
     telefono_contacto = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Contacto'))
     correo = models.EmailField(verbose_name=('Correo Electronico'))
-    idea_negocio = models.TextField(max_length=255,null=True, blank=True, verbose_name=('Idea de negocio'))
+    idea_negocio = models.TextField(max_length=255, null=True, blank=True, verbose_name=('Idea de negocio'))
     docente = models.ForeignKey(Docentes, on_delete=models.SET_NULL, null=True, blank=True, default=None,
                                 verbose_name='Asigne un docente',
                                 related_name='Docente', help_text='Seleccione un docente y asignelo')

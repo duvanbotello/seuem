@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 
-from student.models import ResultadosModulo1, EntregaArchivos, EntregaArchivosModulo3
+from student.models import ResultadosModulo1, EntregaArchivos, EntregaArchivosModulo3, Estudiantes
 
 
 class TestView(LoginRequiredMixin, View):
@@ -71,6 +71,16 @@ class Indicadores(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+
+class Proceso(LoginRequiredMixin, View):
+    template_name = 'student/proceso.html'
+    login_url = reverse_lazy('login:login_student')
+    redirect_field_name = None
+
+    def get(self, request, *args, **kwargs):
+        estudiante = Estudiantes.objects.filter(codigo_estudiante=str(kwargs['id'])).first()
+        return render(request, self.template_name, {'estudiante': estudiante})
 
 
 class PlantillaM2View(LoginRequiredMixin, View):

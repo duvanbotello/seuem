@@ -1,0 +1,108 @@
+{% extends "admin/base_site.html" %}
+{% load static tag_article %}
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'assets/linea.css' %}">
+{% endblock %}
+{% block page_content %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col-xl-10 col-lg-8 col-md-8 col-sm-8 col-12">
+                <div class="user-avatar-info">
+                    <div>
+                        <div class="user-avatar-name">
+                            <h2 class="mb-1">{{ estudiante.nombres }} {{ estudiante.apellidos }}</h2>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="user-avatar-address">
+                        <p class="border-bottom">
+                                        <span class="d-xl-inline-block d-block mb-2"><i
+                                                class="fa fa-universal-access mr-2 text-primary "></i><strong>Grado:</strong> {{ estudiante.grado.nombre_grado }}</span>
+
+                            <br>
+                            <span class="d-xl-inline-block d-block mb-2"><i
+                                    class="fa fa-phone-volume mr-2 text-primary "></i><strong>Telefono/Celular:</strong> {{ estudiante.telefono_contacto }}</span>
+                            <br>
+                            <span class="d-xl-inline-block d-block mb-2"><i
+                                    class="fa fa-eraser mr-2 text-primary "></i><strong>Edad:</strong> {{ estudiante.edad }}</span>
+                            <br>
+                        </p>
+                        <div class="mt-3">
+                            <a href="#"
+                               class="badge badge-light mr-1">{{ estudiante.correo }}</a>
+                        </div>
+                        <div class="mt-3">
+                            <a href="/admin/student/estudiantes/"
+                               class="badge badge-light mr-1">Volver a lista de estudiantes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-top row text-center p-3">
+        <div class="col-3"></div>
+        <div class="col-5">
+            <div class="linea-tiempo">
+                {% resultados_linea estudiante.codigo_estudiante as resultado_linea_v %}
+                {% entregas_m2_linea estudiante.codigo_estudiante as entrega_linea_v %}
+                {% entregas_m3_linea estudiante.codigo_estudiante as entrega_linea_v3 %}
+
+                {% if resultado_linea_v %}
+                    <div class="momento">
+                        <h3>Modulo 1</h3>
+                        <div class="descripcion bg-success">
+                            <div class="text-white">Aprobado</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="momento">
+                        <h3>Modulo 1</h3>
+                        <div class="descripcion bg-danger">
+                            <div class="text-white">Sin Aprobar</div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if entrega_linea_v %}
+                    <div class="momento">
+                        <h3>Modulo 2</h3>
+                        <div class="descripcion bg-success">
+                            <div class="text-white">Aprobado</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="momento">
+                        <h3>Modulo 2</h3>
+                        <div class="descripcion bg-danger">
+                            <div class="text-white">Sin Aprobar</div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if entrega_linea_v3 %}
+                    <div class="momento">
+                        <h3>Modulo 3</h3>
+                        <div class="descripcion bg-success">
+                            <div class="text-white">Aprobado</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="momento">
+                        <h3>Modulo 3</h3>
+                        <div class="descripcion bg-danger">
+                            <div class="text-white">Sin Aprobar</div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="momento">
+                    <h3>Modulo 4</h3>
+                    <div class="descripcion bg-warning">
+                        <div class="text-black">Informacion de entidades financieras</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+{% endblock page_content %}
+{% block extrajs %}
+{% endblock extrajs %}

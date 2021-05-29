@@ -1,6 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
+from django.urls import reverse
+from django.utils.safestring import mark_safe
+
 from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes, Convocatoria, \
     EntregaArchivosModulo3, EntidadFinanciera
 
@@ -50,9 +53,21 @@ class EntregaArchivosM3(admin.ModelAdmin):
 
 @admin.register(Estudiantes)
 class EstudiantesModelAdmin(admin.ModelAdmin):
-    list_display = ('nombres', 'apellidos', 'codigo_estudiante', 'correo', 'grado', 'edad', 'docente', 'idea_negocio')
+    list_display = (
+        'nombres', 'apellidos', 'codigo_estudiante', 'correo', 'grado', 'edad', 'docente', 'idea_negocio',
+        'proceso_link')
     search_fields = ('nombres', 'apellidos', 'codigo_estudiante')
     list_filter = ('codigo_estudiante', 'grado')
+
+    readonly_fields = ('proceso_link',)
+
+    def proceso_link(self, obj):
+        return mark_safe('<a href="{}">{}</a>'.format(
+            reverse("student:ver_proceso", args=(obj.user.estudiantes.codigo_estudiante,)),
+            'Ver proceso'
+        ))
+
+    proceso_link.short_description = 'Proceso'
 
 
 admin.site.register(Grade)

@@ -26,6 +26,20 @@
                         </div>
                     </div>
                     <div class="card-body border-top">
+                        <h3 class="font-16">Entidad</h3>
+                        <div class="">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">{{ request.user.estudiantes.docente.entidad }}
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 class="font-16">Area de desempeño</h3>
+                        <div class="">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">{{ request.user.estudiantes.docente.area_desempeno }}
+                                </li>
+                            </ul>
+                        </div>
                         <h3 class="font-16">Informacion de Contacto</h3>
                         <div class="">
                             <ul class="list-unstyled mb-0">
@@ -37,6 +51,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <br>
                     </div>
 
                 </div>

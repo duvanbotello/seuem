@@ -21,6 +21,8 @@ class Docentes(models.Model):
                                  verbose_name=('Documento identidad'))
     edad = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Edad'))
     titulo = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Titulo academico'))
+    area_desempeno = models.CharField(max_length=100, null=True, blank=True, verbose_name=('Area de desempeño'))
+    entidad = models.CharField(max_length=100, null=True, blank=True, verbose_name=('Entidad'))
     telefono_contacto = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Contacto'))
     correo = models.EmailField(verbose_name=('Correo Electronico'))
 
@@ -45,9 +47,10 @@ class Estudiantes(models.Model):
     nombre_acudiente = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Nombre del acudiente'))
     telefono_contacto = models.CharField(max_length=100, null=True, blank=False, verbose_name=('Contacto'))
     correo = models.EmailField(verbose_name=('Correo Electronico'))
-    docente = models.OneToOneField(Docentes, on_delete=models.SET_NULL, null=True, blank=True, default=None,
-                                   verbose_name='Asigne un docente',
-                                   related_name='Docente', help_text='Seleccione un docente y asignelo')
+    idea_negocio = models.TextField(max_length=255,null=True, blank=True, verbose_name=('Idea de negocio'))
+    docente = models.ForeignKey(Docentes, on_delete=models.SET_NULL, null=True, blank=True, default=None,
+                                verbose_name='Asigne un docente',
+                                related_name='Docente', help_text='Seleccione un docente y asignelo')
 
     def __str__(self):
         return self.nombres + ' ' + self.apellidos
@@ -69,14 +72,14 @@ class ResultadosModulo1(models.Model):
     resultado_inovacion = models.CharField(max_length=10, null=True, blank=False, verbose_name=('Resultado inovacion'))
     resultado_creatividad = models.CharField(max_length=10, null=True, blank=False,
                                              verbose_name=('Resultado creatividad'))
-    resultado_total = models.IntegerField(max_length=10, null=True, blank=False, verbose_name=('Resultado Total'))
+    resultado_total = models.IntegerField(null=True, blank=False, verbose_name=('Resultado Total'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos
 
     class Meta:
-        verbose_name = 'Resultado'
-        verbose_name_plural = 'Resultados'
+        verbose_name = 'Resultado Modulo 1'
+        verbose_name_plural = 'Resultados Modulo 1'
 
 
 class EntregaArchivos(models.Model):
@@ -85,17 +88,17 @@ class EntregaArchivos(models.Model):
                                          verbose_name=('Codigo Estudiantil'), unique=True)
     formato_guia = models.FileField(upload_to="archivos/", null=True, blank=True,
                                     verbose_name=('Plantilla Guia'))
-    nota = models.FloatField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
-    observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
+    nota = models.FloatField(max_length=10, null=True, blank=False, verbose_name=('Nota'))
+    observaciones = models.TextField(null=True, blank=False, verbose_name=('Observaciones'))
     rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
-                               verbose_name=('Rebrica de calificacion'))
+                               verbose_name=('Rubricas de calificacion'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos
 
     class Meta:
-        verbose_name = 'Entrega'
-        verbose_name_plural = 'Entregas'
+        verbose_name = 'Entrega Modulo 2'
+        verbose_name_plural = 'Entregas Modulo 2'
 
 
 class EntregaArchivosModulo3(models.Model):
@@ -104,10 +107,10 @@ class EntregaArchivosModulo3(models.Model):
                                          verbose_name=('Codigo Estudiantil'), unique=True)
     formato_guia = models.FileField(upload_to="archivos/", null=True, blank=True,
                                     verbose_name=('Plantilla Guia'))
-    nota = models.FloatField(max_length=10, null=True, blank=False, verbose_name=('Ingrese Nota'))
-    observaciones = models.TextField(null=True, blank=False, verbose_name=('Ingrese Observaciones'))
+    nota = models.FloatField(max_length=10, null=True, blank=False, verbose_name=('Nota'))
+    observaciones = models.TextField(null=True, blank=False, verbose_name=('Observaciones'))
     rubrica = models.FileField(upload_to="archivos/", null=True, blank=True,
-                               verbose_name=('Rebrica de calificacion'))
+                               verbose_name=('Rubricas de calificacion'))
 
     def __str__(self):
         return self.estudiante.nombres + ' ' + self.estudiante.apellidos

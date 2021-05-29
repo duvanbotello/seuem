@@ -175,7 +175,7 @@ JAZZMIN_SETTINGS = {
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": True,
     "theme": "default",
-    "dark_mode_theme": None,
+    "dark_mode_theme": True,
     "button_classes": {
         "primary": "btn-outline-primary",
         "secondary": "btn-outline-secondary",
@@ -190,3 +190,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'login.backends.SettingsBackend',
 ]
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'duvanbotello1008@gmail.com'
+EMAIL_HOST_PASSWORD = '3156845188d1'
+EMAIL_USE_TLS = True

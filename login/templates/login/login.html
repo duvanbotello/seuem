@@ -41,9 +41,9 @@
             <form method="POST">
                 {% csrf_token %}
                 {% if message %}
-                <div class="alert alert-danger" role="alert">
-                    {{ message }}
-                </div>
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
                 {% endif %}
                 <div class="form-group">
                     <input class="form-control form-control-lg" id="codigo_estudiante" name="codigo_estudiante"
@@ -61,6 +61,10 @@
         <div class="card-footer bg-white p-0  ">
             <div class="card-footer-item card-footer-item-bordered">
                 <a href="{% url 'login:register_student' %}" class="footer-link">Registrarme</a></div>
+        </div>
+        <div class="card-footer bg-white p-0  ">
+            <div class="card-footer-item card-footer-item-bordered">
+                <a href="{% url 'login:reset_password' %}" class="footer-link">Olvide mi contraseña..</a></div>
         </div>
     </div>
 </div>

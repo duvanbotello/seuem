@@ -24,4 +24,5 @@ urlpatterns = [
                   path('', include('article.urls')),
                   path('', include('student.urls')),
                   path('admin/doc/', include('django.contrib.admindocs.urls'))
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

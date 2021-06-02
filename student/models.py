@@ -121,11 +121,13 @@ class EntregaArchivosModulo3(models.Model):
 
 
 class Convocatoria(models.Model):
-    activar_convocatoria = models.BooleanField(default=False, verbose_name="Activar/Desactivar")
-    proxima_convocatoria = models.DateField(null=True, verbose_name="Apertura de plataforma")
+    nombre_convocatoria = models.CharField(max_length=100, null=True, blank=False,
+                                         verbose_name=('Nombre convocatoria'), unique=True)
+    fecha_apertura = models.DateField(null=True, verbose_name="Apertura de plataforma")
+    fecha_cierre = models.DateField(null=True, verbose_name="Cierre de plataforma")
 
     def __str__(self):
-        return str(self.proxima_convocatoria)
+        return str(self.nombre_convocatoria)
 
     class Meta:
         verbose_name = 'Convocatoria'

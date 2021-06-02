@@ -80,7 +80,7 @@
                             Menu
                         </li>
                         {% if convocatoria %}
-                            {% if convocatoria.activar_convocatoria == False %}
+                            {% if convocatoria.activa == False %}
                                 {% if resultados_test %}
                                     <li class="nav-item ">
                                         <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
@@ -276,13 +276,13 @@
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
                 {% if convocatoria %}
-                    {% if convocatoria.activar_convocatoria == False %}
+                    {% if convocatoria.activa == False %}
                         {% if resultados_test %}
                         {% else %}
                             <div class="alert alert-danger" role="alert">
                                 Actualmente la plataforma no esta activa.
                                 <br>
-                                Se activara el {{ convocatoria.proxima_convocatoria }}
+                                Se activara el {{ convocatoria.fecha_apertura }}
                             </div>
                         {% endif %}
 

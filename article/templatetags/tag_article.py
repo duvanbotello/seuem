@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django import template
 
 from article.models import Post
@@ -8,7 +10,20 @@ register = template.Library()
 
 @register.simple_tag()
 def get_convocatoria():
-    return Convocatoria.objects.last()
+    convocatoria_reciente = Convocatoria.objects.last()
+    fecha_cierre_final = datetime(convocatoria_reciente.fecha_cierre.year, convocatoria_reciente.fecha_cierre.month,
+                                  convocatoria_reciente.fecha_cierre.day)
+    fecha_apertura = datetime(convocatoria_reciente.fecha_apertura.year, convocatoria_reciente.fecha_apertura.month,
+                              convocatoria_reciente.fecha_apertura.day)
+    fecha_hoy = datetime.now()
+
+    if fecha_hoy > fecha_cierre_final:
+        return {'activa': False, 'fecha_apertura': convocatoria_reciente.fecha_apertura}
+
+    if fecha_hoy < fecha_apertura:
+        return {'activa': False, 'fecha_apertura': convocatoria_reciente.fecha_apertura}
+
+    return True
 
 
 @register.simple_tag()

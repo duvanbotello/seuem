@@ -7,7 +7,11 @@ from django.utils.safestring import mark_safe
 from student.models import Grade, Estudiantes, ResultadosModulo1, EntregaArchivos, Docentes, Convocatoria, \
     EntregaArchivosModulo3, EntidadFinanciera
 
-admin.site.register(Convocatoria)
+
+@admin.register(Convocatoria)
+class ConvocatoriaModelAdmin(admin.ModelAdmin):
+    list_display = (
+        'nombre_convocatoria', 'fecha_apertura', 'fecha_cierre')
 
 
 @admin.register(Docentes)
